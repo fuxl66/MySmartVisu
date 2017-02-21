@@ -1,0 +1,618 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+{% block content %}
+
+<h1><img class="icon" src='{{ icon0 }}measure_power_meter.svg'/>Energiezähler</h1>
+
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Bedarf</div>
+	<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td>
+					<font size="80">
+					{{ basic.float('EZ.Bedarf', 'EZ.Bedarf', 'w') }}
+					</font>
+				</td>
+			</tr>
+		</table>
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td width="50%" align="left">
+				Verbraucher:
+				</td>
+				<td width="50%" align="right">
+					<div class="ui-li-aside">
+					{{ basic.symbol('21EinLichtAn1', ['EG.Licht.TR_Read', 'EG.Licht.WR_Read', 'OG.SR.Read', 'EG.Licht.VRWand_Read', 'EG.Licht.VRDecke_Read', 'EG.Licht.BadWand_Read', 'EG.Licht.BadDecke_Read', 'EG.Licht.KuecheDecke_Read', 'EG.Licht.KuecheSpuele_Read', 'EG.Licht.EZRandzone_Read', 'EG.Licht.EZEsstisch_Read', 'EG.Licht.EZGang_Read', 'EG.Licht.Stiege_Read', 'EG.Licht.Lesebereich_Read', 'EG.Licht.WZDecke_Read', 'EG.Licht.WZWand_Read', 'EG.Licht.WZBoxen_Read', 'OG.Licht.VRWand_Read', 'OG.KiZiJona.Read', 'OG.KiZiWest.Read', 'OG.Licht.BadDecke_Read', 'OG.Licht.BadSpiegel_Read', 'OG.Licht.BadBox_Read', 'OG.Licht.BadWand_Read', 'EG.Licht.Buero_Read', 'OG.SZDecke.Read', 'OG.Licht.SZWand_Read', 'AB.Licht.Eingang_Read', 'AB.Licht.Terrasse_Read', 'EG.Licht.LeseWand_Read', 'NGB.Licht.Mitte.Read', 'NGB.Licht.Werkbank.Read'], '', icon0~'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+					{{ basic.symbol('21RaffButton1', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}
+					{{ basic.symbol('21LWZ.compressorOn', 'LWZ.compressorOn', '', icon0~'sani_pump.svg', 1, '', 'icon1') }}
+					{{ basic.symbol('21LWZ.heatingCircuitPumpOn', 'LWZ.heatingCircuitPumpOn', '', icon0~'audio_repeat.svg', 1, '', 'icon1') }}
+					{{ basic.symbol('21LWZ.dhwPumpOn', 'LWZ.dhwPumpOn', '', icon0~'sani_water_tap.svg', 1, '', 'icon1') }}
+					{{ basic.symbol('21LWZ.KWLParty', 'LWZ.KWLParty', '', icon0~'vent_ventilation.svg', 1, '', 'icon1') }}
+					{{ basic.text('21LWZ.boosterStage1On', 'LWZ.boosterStage1On', 'HS1', '', 1, 0) }}
+					{{ basic.text('21LWZ.boosterStage2On', 'LWZ.boosterStage2On', 'HS2', '', 1, 0) }}
+					{{ basic.text('21LWZ.boosterStage3On', 'LWZ.boosterStage3On', 'HS3', '', 1, 0) }}
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br clear="all">
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Lieferung</div>
+	<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td>
+					<font size="80">
+					{{ basic.float('EZ.P_Minus', 'EZ.P_Minus', 'w') }}
+					</font>
+				</td>
+			</tr>
+		</table>
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td width="50%" align="left">
+				EVN Zählerstand:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Minus.EVN', 'EZ.E_Minus.EVN', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Jahreslieferung<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Minus.Jahreszaehler', 'EZ.E_Minus.Jahreszaehler', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Jahreskosten<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Minus.Jahreszaehler.Kosten', 'EZ.E_Minus.Jahreszaehler.Kosten', '€') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Ablesung<br />am 31.01.2016:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Minus.Ablesung', 'EZ.E_Minus.Ablesung', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Stufe 0<br />(<500 W)
+				</td>
+				<td width="50%" align="right">
+					{{ basic.text('EZ.P_Minus.Stufe0', 'EZ.P_Minus.Stufe0', 'EIN', 'AUS', 1, 0) }}
+				</td>
+			</tr>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Stufe 1<br />(500-2000 W)
+				</td>
+				<td width="50%" align="right">
+					{{ basic.text('EZ.P_Minus.Stufe1', 'EZ.P_Minus.Stufe1', 'EIN', 'AUS', 1, 0) }}
+				</td>
+			</tr>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Stufe 2<br />(2000-3500 W)
+				</td>
+				<td width="50%" align="right">
+					{{ basic.text('EZ.P_Minus.Stufe2', 'EZ.P_Minus.Stufe2', 'EIN', 'AUS', 1, 0) }}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br clear="all">
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Bezug</div>
+	<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td>
+					<font size="80">
+					{{ basic.float('EZ.P_Plus', 'EZ.P_Plus', 'w') }}
+					</font>
+				</td>
+			</tr>
+		</table>
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td width="50%" align="left">
+				letzten 15min:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus15', 'EZ.E_Plus15', 'w') }} 
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				letzten 60min:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus60', 'EZ.E_Plus60', 'w') }} 
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				EVN Zählerstand:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus.EVN', 'EZ.E_Plus.EVN', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Jahresbezug<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus.Jahreszaehler', 'EZ.E_Plus.Jahreszaehler', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Jahreskosten<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus.Jahreszaehler.Kosten', 'EZ.E_Plus.Jahreszaehler.Kosten', '€') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Ablesung<br />am 31.01.2016:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus.Ablesung', 'EZ.E_Plus.Ablesung', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Relativzähler:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('EZ.E_Plus.Relativ', 'EZ.E_Plus.Relativ', 'kwh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+					{{ basic.formula('EZ.E_Plus.Relativ.ResetUhr', 'EZ.E_Plus.Relativ.ResetUhr', 'short') }}
+				</td>
+				<td width="50%" align="right">
+					{{ basic.button('EZ.E_Plus.Relativ.Reset', 'EZ.E_Plus.Relativ.Reset', 'Reset', '', 1, 'mini') }}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br clear="all">
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Ertrag</div>
+	<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td>
+					<font size="80">
+					{{ basic.float('solar.current', 'solar.current', 'w') }}
+					</font>
+				</td>
+			</tr>
+		</table>
+		<table height="90%" width="90%" align="center">
+			<tr>
+				<td width="50%" align="left">
+				Zählerstand<br />Gesamt:
+				</td>
+				<td width="50%" align="right">
+				{{ basic.float('solar.total', 'solar.total', 'kwhh') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Jahresertrag<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('solar.total.Jahreszaehler', 'solar.total.Jahreszaehler', 'kwhh') }}<br>{{ basic.float('solar.total.Jahreszaehler.Prozent', 'solar.total.Jahreszaehler.Prozent', '%') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Eigenverbrauch<br />(seit Ablesung):
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('solar.total.Eigen', 'solar.total.Eigen', 'kwhh') }}<br>{{ basic.float('solar.total.Eigen.Prozent', 'solar.total.Eigen.Prozent', '%') }}
+				</td>
+			</tr>
+			<tr>
+				<td width="50%" align="left">
+				Ablesung<br />am 31.01.2016:
+				</td>
+				<td width="50%" align="right">
+					{{ basic.float('solar.total.Ablesung', 'solar.total.Ablesung', 'kwhh') }}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br clear="all">
+
+<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+		<h3>Heute / Gestern / Vorgestern</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle><h3>Heute</h3></td>
+					<td width=100 align=right valign=middle><h3>Gestern</h3></td>
+					<td width=100 align=right valign=middle><h3>Vorgestern</h3></td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>Bezug</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Heute.kwh', 'EZ.E_Plus.Heute.kwh', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Gestern.kwh', 'EZ.E_Plus.Gestern.kwh', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Vorgestern.kwh', 'EZ.E_Plus.Vorgestern.kwh', 'kwh') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>Lieferung</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Heute.kwh', 'EZ.E_Minus.Heute.kwh', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Gestern.kwh', 'EZ.E_Minus.Gestern.kwh', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Vorgestern.kwh', 'EZ.E_Minus.Vorgestern.kwh', 'kwh') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>Ertrag</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('tges', 'solar.day', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Gestern', 'solar.total.Gestern', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Vorgestern', 'solar.total.Vorgestern', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>Bedarf</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Heute', 'EZ.Bedarf.Heute', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Gestern', 'EZ.Bedarf.Gestern', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Vorgestern', 'EZ.Bedarf.Vorgestern', 'kwh') }}
+					</td>
+				</tr>
+			</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Wärmepumpe</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td  width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle><h3>Heute</h3></td>
+					<td width=100 align=right valign=middle><h3>Gestern</h3></td>
+					<td width=100 align=right valign=middle><h3>Vorgestern</h3></td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>Heizen</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCDay', 'LWZ.ePowerHCDay', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Gestern', 'LWZ.ePowerHCTotal.Gestern', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vorgestern', 'LWZ.ePowerHCTotal.Vorgestern', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCDay.Prozent', 'LWZ.ePowerHCDay.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Gestern.Prozent', 'LWZ.ePowerHCTotal.Gestern.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vorgestern.Prozent', 'LWZ.ePowerHCTotal.Vorgestern.Prozent', '%') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3>WW</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWDay', 'LWZ.ePowerDHWDay', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Gestern', 'LWZ.ePowerDHWTotal.Gestern', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vorgestern', 'LWZ.ePowerDHWTotal.Vorgestern', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWDay.Prozent', 'LWZ.ePowerDHWDay.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Gestern.Prozent', 'LWZ.ePowerDHWTotal.Gestern.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vorgestern.Prozent', 'LWZ.ePowerDHWTotal.Vorgestern.Prozent', '%') }}
+					</td>
+				</tr>
+			</table>
+	</div>
+</div>
+</div>
+
+<br clear="all">
+<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+		<h3>Woche / Vorwoche</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle></h3></td>
+					<td width=100 align=right valign=middle><h3>Aktuell</h3></td>
+					<td width=100 align=right valign=middle><h3>Vorwoche</h3></td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Bezug</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Woche', 'EZ.E_Plus.Woche.kwh', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Vorwoche', 'EZ.E_Plus.Vorwoche.kwh', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Lieferung</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Woche', 'EZ.E_Minus.Woche.kwh', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Vorwoche', 'EZ.E_Minus.Vorwoche.kwh', 'kwhh') }}
+					</td>
+				</tr>
+					<td width=50 align=right valign=middle><h3>Ertrag</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Woche', 'solar.total.Woche', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Vorwoche', 'solar.total.Vorwoche', 'kwhh') }}
+					</td>
+				</tr>
+				</tr>
+					<td width=50 align=right valign=middle><h3>Bedarf</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Woche', 'EZ.Bedarf.Woche', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Vorwoche', 'EZ.Bedarf.Vorwoche', 'kwhh') }}
+					</td>
+				</tr>
+			</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Wärmepumpe</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle></h3></td>
+					<td width=100 align=right valign=middle><h3>Aktuell</h3></td>
+					<td width=100 align=right valign=middle><h3>Vorwoche</h3></td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Heizen</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Woche', 'LWZ.ePowerHCTotal.Woche', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vorwoche', 'LWZ.ePowerHCTotal.Vorwoche', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Woche.Prozent', 'LWZ.ePowerHCTotal.Woche.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vorwoche.Prozent', 'LWZ.ePowerHCTotal.Vorwoche.Prozent', '%') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>WW</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Woche', 'LWZ.ePowerDHWTotal.Woche', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vorwoche', 'LWZ.ePowerDHWTotal.Vorwoche', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Woche.Prozent', 'LWZ.ePowerDHWTotal.Woche.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vorwoche.Prozent', 'LWZ.ePowerDHWTotal.Vorwoche.Prozent', '%') }}
+					</td>
+				</tr>
+				</table>
+	</div>
+</div>
+</div>
+<br clear="all">
+<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+		<h3>Monat / Vormonat</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle></h3></td>
+					<td width=100 align=right valign=middle><h3>Aktuell</h3></td>
+					<td width=100 align=right valign=middle><h3>Vormonat</h3></td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Bezug</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Monat', 'EZ.E_Plus.Monat.kwh', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Vormonat', 'EZ.E_Plus.Vormonat.kwh', 'kwhh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Lieferung</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Monat', 'EZ.E_Minus.Monat.kwh', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Vormonat', 'EZ.E_Minus.Vormonat.kwh', 'kwhh') }}
+					</td>
+				</tr>
+					<td width=50 align=right valign=middle><h3>Ertrag</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Monat', 'solar.total.Monat', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('solar.total.Vormonat', 'solar.total.Vormonat', 'kwhh') }}
+					</td>
+				</tr>
+				</tr>
+					<td width=50 align=right valign=middle><h3>Bedarf</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Monat', 'EZ.Bedarf.Monat', 'kwhh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.Bedarf.Vormonat', 'EZ.Bedarf.Vormonat', 'kwhh') }}
+					</td>
+				</tr>
+				</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Wärmepumpe</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle></h3></td>
+					<td width=100 align=right valign=middle><h3>Aktuell</h3></td>
+					<td width=100 align=right valign=middle><h3>Vormonat</h3></td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Heizen</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Monat', 'LWZ.ePowerHCTotal.Monat', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vormonat', 'LWZ.ePowerHCTotal.Vormonat', 'kwh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Monat.Prozent', 'LWZ.ePowerHCTotal.Monat.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerHCTotal.Vormonat.Prozent', 'LWZ.ePowerHCTotal.Vormonat.Prozent', '%') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>WW</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Monat', 'LWZ.ePowerDHWTotal.Monat', 'kwh') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vormonat', 'LWZ.ePowerDHWTotal.Vormonat', 'kwh') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3></h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Monat.Prozent', 'LWZ.ePowerDHWTotal.Monat.Prozent', '%') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('LWZ.ePowerDHWTotal.Vormonat.Prozent', 'LWZ.ePowerDHWTotal.Vormonat.Prozent', '%') }}
+					</td>
+				</tr>
+				</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Kosten</h3>
+		 <table align=center valign=middle>
+				<tr>
+					<td width=50 align=right valign=middle></h3></td>
+					<td width=100 align=right valign=middle><h3>Aktuell</h3></td>
+					<td width=100 align=right valign=middle><h3>Vormonat</h3></td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Bezug</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Monat.Kosten', 'EZ.E_Plus.Monat.Kosten', '€') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Vormonat.Kosten', 'EZ.E_Plus.Vormonat.Kosten', '€') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Lieferung</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Monat.Kosten', 'EZ.E_Minus.Monat.Kosten', '€') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Minus.Vormonat.Kosten', 'EZ.E_Minus.Vormonat.Kosten', '€') }}
+					</td>
+				</tr>
+				<tr>
+					<td width=50 align=right valign=middle><h3>Bilanz</h3></td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Monat.KostenPM', 'EZ.E_Plus.Monat.KostenPM', '€') }}
+					</td>
+					<td width=100 align=right valign=middle>
+						{{ basic.float('EZ.E_Plus.Vormonat.KostenPM', 'EZ.E_Plus.Vormonat.KostenPM', '€') }}
+					</td>
+				</tr>
+		</table>
+	</div>
+</div>
+</div>
+<br clear="all">
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false">
+		<h3>Strombedarf pro Tag (kwh)</h3>
+		{{ plot.period('DiaEZ.Bedarf', 'EZ.Bedarf', 'max', '1d', '' ,'' ,'' , '', '', '', '', '', '1h'  ) }}<br>
+		</div>
+	</div>
+</div>
+{% endblock %}

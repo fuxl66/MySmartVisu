@@ -1,0 +1,42 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+    <h1><img class="icon" src='{{ icon0 }}scene_toilet.svg'/>Bad Erdgeschoss</h1>
+
+    <div class="block">
+    <div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+    	<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+         <table align=center valign=middle>
+            <tr>
+                <td align=center valign=middle><h3>Deckenleuchte</h3></td>
+                <td align=center valign=middle>
+                    <div class="set">{{ basic.dual('EG.Licht.BadDecke', 'EG.Licht.BadDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+                </td>
+                <td align=center valign=middle></td>
+            </tr>            
+            <tr>
+                <td align=center valign=middle><h3>Spiegelleuchte</h3></td>
+                <td align=center valign=middle>
+                    <div class="set">{{ basic.dual('EG.Licht.BadWand', 'EG.Licht.BadWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+                </td>
+                <td align=center valign=middle></td>
+            </tr>                        
+        </table>
+        </div>				
+    </div>
+    </div>
+
+{% endblock %}
+

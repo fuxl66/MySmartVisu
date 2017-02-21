@@ -1,0 +1,22 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+{% block content %}
+
+<h1><img class="icon" src="{{ icon0 }}it_pc.svg"/>System</h1>
+
+<div class="block" style="width:100%">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Boot {{ basic.formula('env.system.start.age', 'env.system.start', 'short') }}</div>
+		<div class="ui-fixed ui-body-a ui-corner-bottom">
+			{{ plot.multiaxis('p1', ['env.system.load','env.core.memory'], 'avg', '3d', '', '', '', '', ['system load', 'memory'], ['#a00','#070'], '', ['Zeit', 'Auslastung', 'Speicher'], '5i', [1,2], [0,1], ['#f00','#0a0']) }}
+		</div>
+</div>
+{% endblock %}

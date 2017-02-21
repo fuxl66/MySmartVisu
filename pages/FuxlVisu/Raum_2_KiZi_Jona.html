@@ -1,0 +1,201 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_baby.svg'/>Jona</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+				<h3>Deckenleuchte</h3>
+					<div class="set">{{ basic.dual('OG.KiZiJona.Schalten', 'OG.KiZiJona.Schalten', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+					<div class="set">{{ basic.slider('OG.KiZiJona.Dimmen', 'OG.KiZiJona.Dimmen', 0, 100, 10) }}</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('OG.Raffstore.KiZiJona.move.up', 'OG.Raffstore.KiZiJona.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('OG.Raffstore.KiZiJona.stop', 'OG.Raffstore.KiZiJona.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('OG.Raffstore.KiZiJona.move.down', 'OG.Raffstore.KiZiJona.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupKiZiJonapos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupKiZiJonapos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'OG.Raffstore.KiZiJona.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'OG.Raffstore.KiZiJona.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'OG.Raffstore.KiZiJona.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'OG.Raffstore.KiZiJona.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'OG.Raffstore.KiZiJona.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'OG.Raffstore.KiZiJona.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'OG.Raffstore.KiZiJona.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'OG.Raffstore.KiZiJona.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'OG.Raffstore.KiZiJona.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'OG.Raffstore.KiZiJona.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('KiZiJonaPosWert', 'OG.Raffstore.KiZiJona.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupKiZiJonaangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupKiZiJonaangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'OG.Raffstore.KiZiJona.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'OG.Raffstore.KiZiJona.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'OG.Raffstore.KiZiJona.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'OG.Raffstore.KiZiJona.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'OG.Raffstore.KiZiJona.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'OG.Raffstore.KiZiJona.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'OG.Raffstore.KiZiJona.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'OG.Raffstore.KiZiJona.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'OG.Raffstore.KiZiJona.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'OG.Raffstore.KiZiJona.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('KiZiJonaAngleWert', 'OG.Raffstore.KiZiJona.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'OG.Raffstore.KiZiJona.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'OG.Raffstore.KiZiJona.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('OG.Raffstore.KiZiJona.sperre', 'OG.Raffstore.KiZiJona.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('OG.Raffstore.KiZiJona.Autosperre', 'OG.Raffstore.KiZiJona.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('1OG.Raffstore.KiZiJona', '', 'OG.Raffstore.KiZiJona.move', 'OG.Raffstore.KiZiJona.stop', 'OG.Raffstore.KiZiJona.position', 'OG.Raffstore.KiZiJona.stop', 'OG.Raffstore.KiZiJona.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('1angle0', 'OG.Raffstore.KiZiJona.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle50', 'OG.Raffstore.KiZiJona.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle100', 'OG.Raffstore.KiZiJona.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('1OG.Raffstore.KiZiJona.angle', 'OG.Raffstore.KiZiJona.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.KiZiJona.sperre', 'OG.Raffstore.KiZiJona.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.KiZiJona.Autosperre', 'OG.Raffstore.KiZiJona.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

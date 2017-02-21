@@ -1,0 +1,214 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_stairs.svg'/>Vorraum Obergeschoss</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Stiegenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.Stiege', 'EG.Licht.Stiege', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchten</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.VRWand', 'OG.Licht.VRWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('VROG.Raffstore.VR.move.up', 'OG.Raffstore.VR.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('VROG.Raffstore.VR.stop', 'OG.Raffstore.VR.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('VROG.Raffstore.VR.move.down', 'OG.Raffstore.VR.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupVRpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupVRpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'OG.Raffstore.VR.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'OG.Raffstore.VR.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'OG.Raffstore.VR.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'OG.Raffstore.VR.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'OG.Raffstore.VR.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'OG.Raffstore.VR.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'OG.Raffstore.VR.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'OG.Raffstore.VR.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'OG.Raffstore.VR.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'OG.Raffstore.VR.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('VRPosWert', 'OG.Raffstore.VR.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupVRangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupVRangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'OG.Raffstore.VR.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'OG.Raffstore.VR.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'OG.Raffstore.VR.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'OG.Raffstore.VR.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'OG.Raffstore.VR.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'OG.Raffstore.VR.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'OG.Raffstore.VR.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'OG.Raffstore.VR.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'OG.Raffstore.VR.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'OG.Raffstore.VR.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('VRAngleWert', 'OG.Raffstore.VR.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('VRopen', 'OG.Raffstore.VR.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('VRclose', 'OG.Raffstore.VR.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('VROG.Raffstore.VR.sperre', 'OG.Raffstore.VR.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('VRRaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('VROG.Raffstore.VR.Autosperre', 'OG.Raffstore.VR.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('1OG.Raffstore.VR', '', 'OG.Raffstore.VR.move', 'OG.Raffstore.VR.stop', 'OG.Raffstore.VR.position', 'OG.Raffstore.VR.stop', 'OG.Raffstore.VR.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('1angle0', 'OG.Raffstore.VR.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle50', 'OG.Raffstore.VR.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle100', 'OG.Raffstore.VR.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('1OG.Raffstore.VR.angle', 'OG.Raffstore.VR.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.VR.sperre', 'OG.Raffstore.VR.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td> 
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.VR.Autosperre', 'OG.Raffstore.VR.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

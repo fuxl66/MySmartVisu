@@ -1,0 +1,1493 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package	 smartVISU
+ * @author	  Martin Gleiß
+ * @copyright   2012
+ * @license	 GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+{% import "icon.html" as icon %}
+
+<ul data-role="listview" data-dividertheme="c" class="tilesSmall3">
+	<li data-icon="false">
+		<a href="#popupOutdoor" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}weather_directions.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Outdoor</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							<table widht=100% align=right>
+								<tr>
+									<td width=50% align=right>
+										{{ basic.symbol('1WS.Temperatur.GW1', 'WS.Temperatur.GW1', '', 'temp_temperature.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1WS.Temperatur.GW3', 'WS.Temperatur.GW3', '', 'temp_temperature.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1WS.Temperatur.GW4', 'WS.Temperatur.GW4', '', 'temp_temperature.svg', 1, '', 'icon1') }}
+									</td>
+									<td width=50% align=right>
+										{{ basic.float('1WS.Temperatur', 'WS.Temperatur', '°') }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										{{ basic.symbol('1WS.Windstaerke.GW1', 'WS.Windstaerke.GW1', '', 'weather_wind_speed.svg', 1, '', 'icon1') }}
+									</td>
+									<td align=right>
+										{{ basic.float('1WS.Windstaerke.kmH', 'WS.Windstaerke.kmH', 'km/h') }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										{{ basic.symbol('1WS.Helligkeit.GW1', ['WS.Helligkeit.GW1', 'WS.Helligkeit.GW2'], '', 'control_plus.svg', 1, 'or', 'icon1') }}
+									</td>
+									<td align=right>
+										{{ basic.float('1WS.Helligkeit', 'WS.Helligkeit', 'lux') }}
+									</td>
+								</tr>
+							</table>
+							{{ status.notify('WS.Windstaerke.GW1', 'WS.Windstaerke.GW1', 'WS.Windstaerke.GW1.Info', 'WIND', 'Information', 'Windalarm Grenzwert 1 aktiv', 'warning') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupOutdoor" data-role="popup" style="width:300px; height:280px;">
+				<a href="index.php?page=Wetterstation" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table widht=100% align=center valign=center>
+						<tr>
+							<td align=left><h1>Outdoor</h1></td>
+							<td align=center>{{ basic.float('11WS.Temperatur.MAX', 'WS.Temperatur.MAX', '°') }}</td>
+							<td align=center>{{ basic.float('11WS.Temperatur.MIN', 'WS.Temperatur.MIN', '°') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1></h1></td>
+							<td align=center>{{ basic.formula('WS.Temperatur.MAXUhr', 'WS.Temperatur.MAXUhr', 'short') }}</td>
+							<td align=center>{{ basic.formula('WS.Temperatur.MINUhr', 'WS.Temperatur.MINUhr', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Wind</h1></td>
+							<td align=center>GW1</td>
+							<td align=center>{{ basic.float('11WS.Windstaerke.MAX', 'WS.Windstaerke.MAX',  'km/h') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1></h1></td>
+							<td align=center>{{ basic.formula('WS.Windstaerke.GW1Uhr1111', 'WS.Windstaerke.GW1Uhr', 'short') }}</td>
+							<td align=center>{{ basic.formula('WS.Windstaerke.MAXUhr', 'WS.Windstaerke.MAXUhr', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Regen</h1></td>
+							<td align=center>{{ basic.formula('11WS.Regen.Uhr', 'WS.Regen.Uhr', 'short') }}</td>
+							<td align=center>{{ basic.formula('11WS.Regen.Uhr2', 'WS.Regen.Uhr2', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Sonne</h1></td>
+							<td align=center>{{ basic.formula('11WS.TagNacht.Uhr', 'WS.TagNacht.Uhr', 'short') }}</td>
+							<td align=center>{{ basic.formula('11WS.TagNacht.Uhr2', 'WS.TagNacht.Uhr2', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1></h1>{{ basic.value('env.location.moonphase18', 'env.location.moonphase') }}</td>
+							<td align=center>{{ basic.formula('env.location.moonset', 'env.location.moonset', 'short') }}</td>
+							<td align=center>{{ basic.formula('env.location.moonrise', 'env.location.moonrise', 'short') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	<li data-icon="false">
+		<a href="#popupIndoor" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}sani_heating.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Indoor</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							<table widht=100% align=right>
+								<tr>
+									<td width=50% align=right>
+										{{ basic.float('1LWZ.roomTempRC', 'LWZ.roomTempRC', '°') }}
+									</td>
+									<td width=50% align=right>
+										{{ basic.float('1LWZ.relHumidity', 'LWZ.relHumidity', '%') }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										{{ basic.float('11LWZ.dhwTemp', 'LWZ.dhwTemp', '°') }}
+									</td>
+									<td align=right>
+										{{ basic.float('11LWZ.dhwSetTemp', 'LWZ.dhwSetTemp', '°') }}
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align=right>
+										{{ basic.symbol('1LWZ.compressorOn', 'LWZ.compressorOn', '', 'sani_pump.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1LWZ.heatingCircuitPumpOn', 'LWZ.heatingCircuitPumpOn', '', 'audio_repeat.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1LWZ.dhwPumpOn', 'LWZ.dhwPumpOn', '', 'sani_water_tap.svg', 1, '', 'icon1') }}
+										{{ basic.text('1LWZ.boosterStage1On', 'LWZ.boosterStage1On', 'HS1', '', 1, 0) }}
+										{{ basic.text('1LWZ.boosterStage2On', 'LWZ.boosterStage2On', 'HS2', '', 1, 0) }}
+										{{ basic.text('1LWZ.boosterStage3On', 'LWZ.boosterStage3On', 'HS3', '', 1, 0) }}
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupIndoor" data-role="popup" style="width:300px; height:230px;">
+				<a href="index.php?page=Heizung_LWZ" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table widht=100% align=center valign=center>
+						<tr>
+							<td align=left><h1>Heizen</h1></td>
+							<td align=center>{{ basic.formula('LWZ.iconHeating.Last', 'LWZ.iconHeating.Last', 'short') }}</td>
+							<td align=center>{{ basic.formula('LWZ.iconHeating.Prev', 'LWZ.iconHeating.Prev', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>WW</h1></td>
+							<td align=center>{{ basic.formula('LWZ.iconDHW.Last', 'LWZ.iconDHW.Last', 'short') }}</td>
+							<td align=center>{{ basic.formula('LWZ.iconDHW.Prev', 'LWZ.iconDHW.Prev', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Kühlen</h1></td>
+							<td align=center>tbd</td>
+							<td align=center>tbd</td>
+						</tr>
+						<tr>
+							<td align=left><h1>HS</h1></td>
+							<td align=center>{{ basic.formula('LWZ.iconBooster.Last', 'LWZ.iconBooster.Last', 'short') }}</td>
+							<td align=center>{{ basic.formula('LWZ.iconBooster.Prev', 'LWZ.iconBooster.Prev', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Filter</h1></td>
+							<td align=center>{{ basic.formula('LWZ.iconBothFilters.Last', 'LWZ.iconBothFilters.Last', 'short') }}</td>
+							<td align=center>{{ basic.formula('LWZ.iconBothFilters.Prev', 'LWZ.iconBothFilters.Prev', 'short') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	<li data-icon="false">
+		<a href="index.php?page=EZ">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}measure_power_meter.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Energie</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							<table widht=100% align=right>
+								<tr>
+									<td width=50% align=right>
+										{{ basic.float('1tges', 'solar.day', 'kwh') }}
+									</td>
+									<td width=50% align=right>
+										{{ basic.float('pakt', 'solar.current', 'w') }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										+{{ basic.float('1EZ.P_Plus', 'EZ.P_Plus', 'w') }}
+									</td>
+									<td align=right>
+										-{{ basic.float('1EZ.P_Minus', 'EZ.P_Minus', 'w') }}
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align=right>
+										{{ basic.float('1EZ.Bedarf', 'EZ.Bedarf', 'w') }}<br>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</a>
+	</li>
+	
+	<li data-icon="false">
+		<a href="#popupStatus" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}weather_pollen.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Status</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							<table widht=100% align=right>
+								<tr>
+									<td align=right>
+										{{ basic.symbol('11RaffButton1', 'ZS.Raffstore.Button', '', 'fts_shutter_up.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('AussenSchuko1', ['AB.Schuko.Terrasse_Read', 'NGB.Schuko.Heizluefter.Read', 'NGB.Schuko.Fenster.Read'], '', 'message_socket_ch.svg', 1, 'or', 'icon1') }}
+										{{ basic.symbol('1AllesRaff01', ['EG.Raff.KuecheTuere.ReadPos', 'EG.Raff.EZTuere.ReadPos', 'EG.Raff.EZFensterGross.ReadPos', 'EG.Raff.EZFensterKlein.ReadPos', 'EG.Raff.WZTuere.ReadPos', 'EG.Raff.WZFenster.ReadPos', 'OG.Raff.SZSR.ReadPos', 'OG.Raff.KiZiJona.ReadPos', 'OG.Raff.KiZiWest.ReadPos', 'OG.Raff.VR.ReadPos', 'OG.Raff.Bad.ReadPos'], '', 'fts_shutter_10.svg', 0, 'and', 'icon1') }}
+										{{ basic.symbol('1AllesRaff1001', ['EG.Raff.KuecheTuere.ReadPos', 'EG.Raff.EZTuere.ReadPos', 'EG.Raff.EZFensterGross.ReadPos', 'EG.Raff.EZFensterKlein.ReadPos', 'EG.Raff.WZTuere.ReadPos', 'EG.Raff.WZFenster.ReadPos', 'OG.Raff.SZSR.ReadPos', 'OG.Raff.KiZiJona.ReadPos', 'OG.Raff.KiZiWest.ReadPos', 'OG.Raff.VR.ReadPos', 'OG.Raff.Bad.ReadPos'], '', 'fts_shutter_100.svg', 100, 'and', 'icon1') }}
+										{{ basic.symbol('1AllesBlade01', ['EG.Raff.KuecheTuere.ReadAngle', 'EG.Raff.EZTuere.ReadAngle', 'EG.Raff.EZFensterGross.ReadAngle', 'EG.Raff.EZFensterKlein.ReadAngle', 'EG.Raff.WZTuere.ReadAngle', 'EG.Raff.WZFenster.ReadAngle', 'OG.Raff.SZSR.ReadAngle', 'OG.Raff.KiZiJona.ReadAngle', 'OG.Raff.KiZiWest.ReadAngle', 'OG.Raff.VR.ReadAngle', 'OG.Raff.Bad.ReadAngle'], '', 'fts_blade_z.svg', 0, 'and', 'icon1') }}
+										{{ basic.symbol('1Sperre1', ['EG.Raff.KuecheTuere.ReadSperre', 'EG.Raff.EZTuere.ReadSperre', 'EG.Raff.EZFensterGross.ReadSperre', 'EG.Raff.EZFensterKlein.ReadSperre', 'EG.Raff.WZTuere.ReadSperre', 'EG.Raff.WZFenster.ReadSperre', 'OG.Raff.SZSR.ReadSperre', 'OG.Raff.KiZiJona.ReadSperre', 'OG.Raff.KiZiWest.ReadSperre', 'OG.Raff.VR.ReadSperre', 'OG.Raff.Bad.ReadSperre'], '', 'secur_locked.svg', 1, 'or', 'icon1') }}
+										{{ basic.symbol('1SperreA1', ['EG.Raffstore.KuecheTuere.Autosperre', 'EG.Raffstore.EZTuere.Autosperre', 'EG.Raffstore.EZFensterGross.Autosperre', 'EG.Raffstore.EZFensterKlein.Autosperre', 'EG.Raffstore.WZTuere.Autosperre', 'EG.Raffstore.WZFenster.Autosperre', 'OG.Raffstore.SZ.Autosperre', 'OG.Raffstore.KiZiJona.Autosperre', 'OG.Raffstore.KiZiWest.Autosperre', 'OG.Raffstore.VR.Autosperre', 'OG.Raffstore.Bad.Autosperre'], '', 'time_manual_mode.svg', 1, 'or', 'icon1') }}
+										{{ basic.symbol('1AllesLichtAus1', ['EG.Licht.TR_Read', 'EG.Licht.WR_Read', 'EG.Licht.Buero_Read', 'EG.Licht.VRWand_Read', 'EG.Licht.VRDecke_Read', 'EG.Licht.BadWand_Read', 'EG.Licht.BadDecke_Read', 'EG.Licht.KuecheDecke_Read', 'EG.Licht.KuecheSpuele_Read', 'EG.Licht.EZRandzone_Read', 'EG.Licht.EZEsstisch_Read', 'EG.Licht.EZGang_Read', 'EG.Licht.Stiege_Read', 'EG.Licht.Lesebereich_Read', 'EG.Licht.WZDecke_Read', 'EG.Licht.WZWand_Read', 'EG.Licht.WZBoxen_Read', 'OG.Licht.VRWand_Read', 'OG.KiZiJona.Read', 'OG.KiZiWest.Read', 'OG.Licht.BadDecke_Read', 'OG.Licht.BadSpiegel_Read', 'OG.Licht.BadBox_Read', 'OG.Licht.BadWand_Read', 'OG.SR.Read', 'OG.SZDecke.Read', 'OG.Licht.SZWand_Read', 'AB.Licht.Eingang_Read', 'AB.Licht.Terrasse_Read', 'EG.Licht.LeseWand_Read', 'NGB.Licht.Mitte.Read', 'NGB.Licht.Werkbank.Read', 'AB.Licht.SpotsEZ_Read', 'AB.Licht.SpotsWZ_Read', 'AB.Licht.Steinmauer_Read'], '', 'light_light.svg', 0, 'and', 'icon1') }}
+										{{ basic.symbol('1EinLichtAn1111', ['EG.Licht.TR_Read', 'EG.Licht.WR_Read', 'OG.SR.Read', 'EG.Licht.VRWand_Read', 'EG.Licht.VRDecke_Read', 'EG.Licht.BadWand_Read', 'EG.Licht.BadDecke_Read', 'EG.Licht.KuecheDecke_Read', 'EG.Licht.KuecheSpuele_Read', 'EG.Licht.EZRandzone_Read', 'EG.Licht.EZEsstisch_Read', 'EG.Licht.EZGang_Read', 'EG.Licht.Stiege_Read', 'EG.Licht.Lesebereich_Read', 'EG.Licht.WZDecke_Read', 'EG.Licht.WZWand_Read', 'EG.Licht.WZBoxen_Read', 'OG.Licht.VRWand_Read', 'OG.KiZiJona.Read', 'OG.KiZiWest.Read', 'OG.Licht.BadDecke_Read', 'OG.Licht.BadSpiegel_Read', 'OG.Licht.BadBox_Read', 'OG.Licht.BadWand_Read', 'EG.Licht.Buero_Read', 'OG.SZDecke.Read', 'OG.Licht.SZWand_Read', 'AB.Licht.Eingang_Read', 'AB.Licht.Terrasse_Read', 'EG.Licht.LeseWand_Read', 'NGB.Licht.Mitte.Read', 'NGB.Licht.Werkbank.Read', 'AB.Licht.SpotsEZ_Read', 'AB.Licht.SpotsWZ_Read', 'AB.Licht.Steinmauer_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										{{ basic.text('WS.Fassade.Ost.EinAus', 'WS.Fassade.Ost.EinAus', 'O', '', 1, 0) }}
+										{{ basic.text('WS.Fassade.Sued.EinAus', 'WS.Fassade.Sued.EinAus', 'S', '', 1, 0) }}
+										{{ basic.text('WS.Fassade.SuedWest.EinAus', 'WS.Fassade.SuedWest.EinAus', 'SW', '', 1, 0) }}
+										{{ basic.text('WS.Fassade.West.EinAus', 'WS.Fassade.West.EinAus', 'W', '', 1, 0) }}
+										{{ basic.symbol('1WS.Regen', 'WS.Regen', '', 'weather_rain_light.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1WS.Tag', 'WS.TagNacht', '', 'scene_day.svg', 0, '', 'icon1') }}
+										{{ basic.symbol('1WS.Nacht', 'WS.TagNacht', '', 'scene_night.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('moon1', 'env.location.moonphase', '', 'weather_moon_phases_1_new.svg', 1) }}
+										{{ basic.symbol('moon2', 'env.location.moonphase', '', 'weather_moon_phases_2.svg', 2) }}
+										{{ basic.symbol('moon3', 'env.location.moonphase', '', 'weather_moon_phases_3_half.svg', 3) }}
+										{{ basic.symbol('moon4', 'env.location.moonphase', '', 'weather_moon_phases_4.svg', 4) }}
+										{{ basic.symbol('moon5', 'env.location.moonphase', '', 'weather_moon_phases_5_full.svg', 5, '', 'icon1') }}
+										{{ basic.symbol('moon6', 'env.location.moonphase', '', 'weather_moon_phases_6.svg', 6) }}
+										{{ basic.symbol('moon7', 'env.location.moonphase', '', 'weather_moon_phases_7_half.svg', 7) }}
+										{{ basic.symbol('moon8', 'env.location.moonphase', '', 'weather_moon_phases_8.svg', 8) }}
+									</td>
+								</tr>
+								<tr>
+									<td align=right>
+										{{ basic.symbol('Status.Abwesend', 'Status.Abwesend', '', 'status_away_2.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1WS.UNDLogikSperre', 'WS.UNDLogikSperre', '', 'fts_umbrella_offset_closed.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('ServerDream', ['AVM.devices.router_7360.Server', 'AVM.devices.router_7360.Dreambox'], '', 'it_network.svg', 0, 'or', 'icon1') }}
+										{{ basic.symbol('DreamStandby1', 'enigma2.dm7020hd.e2instandby', '', 'it_television.svg', 0, '', 'icon1') }}
+										{{ basic.symbol('1KontaktDoor1', ['EG.Kontakt.Eingang', 'EG.Kontakt.EZ', 'EG.Kontakt.WZ'], '', 'fts_door_open.svg', 0, 'or', 'icon1') }}
+										{{ basic.symbol('1EG.Kontakt.WR1', 'EG.Kontakt.WR', '', 'fts_window_1w_tilt.svg', 0, '', 'icon1') }}
+										{{ basic.symbol('PVEINAUS', 'solar.status.EinAus', '', 'measure_power_meter.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('0WS.KWLIcon', 'WS.KWLIcon', '', 'edit_numeric_0.svg', 0) }}
+										{{ basic.symbol('1WS.KWLIcon', 'WS.KWLIcon', '', 'edit_numeric_1.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('2WS.KWLIcon', 'WS.KWLIcon', '', 'edit_numeric_2.svg', 2, '', 'icon1') }}
+										{{ basic.symbol('3WS.KWLIcon', 'WS.KWLIcon', '', 'edit_numeric_3.svg', 3, '', 'icon1') }}
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupStatus" data-role="popup" style="width:200px; height:190px;">
+					<table widht=100% align=center>
+						<tr>
+							<td align=left><h1>Carina</h1></td>
+							<td align=center>{{ basic.formula('AVM.devices.router_7360.CarinaSmart.zuletzt111', 'AVM.devices.router_7360.CarinaSmart.zuletzt', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Markus</h1></td>
+							<td align=center>{{ basic.formula('AVM.devices.router_7360.FuxlSmart.zuletzt111', 'AVM.devices.router_7360.FuxlSmart.zuletzt', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Oma Heidi</h1></td>
+							<td align=center>{{ basic.formula('AVM.devices.router_7360.OmaHeidi.zuletzt111', 'AVM.devices.router_7360.OmaHeidi.zuletzt', 'short') }}</td>
+						</tr>
+						<tr>
+							<td align=left><h1>Eingang</h1></td>
+							<td align=center>{{ basic.formula('EG.Kontakt.Eingang.Uhr1111', 'EG.Kontakt.Eingang.Uhr', 'short') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+</ul>
+<ul data-role="listview" data-dividertheme="c" class="tilesSmall">
+	<li data-icon="false">
+		<a href="#popupVR" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_hall.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Vorraum<br />Technik<br />Wirtschaft</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('VRTRWRLicht', ['EG.Licht.TR_Read', 'EG.Licht.WR_Read', 'EG.Licht.VRWand_Read', 'EG.Licht.VRDecke_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('WRKontakt', 'EG.Kontakt.WR', '', 'fts_window_1w_tilt.svg', 0, '', 'icon1') }}
+							{{ basic.symbol('EingangKontakt', 'EG.Kontakt.Eingang', '', 'fts_door_open.svg', 0, '', 'icon1') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupVR" data-role="popup" style="width:150px; height:320px;">
+				<a href="index.php?page=Raum_1_VR_TR_WR" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Vorraum<br />Decke/Wand</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Licht.VRDecke', 'EG.Licht.VRDecke', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Licht.VRWand', 'EG.Licht.VRWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center><h1>Technikraum</h1></td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.dual('2EG.Licht.TR', 'EG.Licht.TR', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=center><h1>Wirtschaftsraum</h1></td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.dual('2EG.Licht.WR', 'EG.Licht.WR', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+
+	<li data-icon="false">
+		<a href="#popupBuero" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_office.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Büro</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('BueroLicht', 'EG.Licht.Buero_Read', '', 'light_light_dim_100.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('Server11', 'AVM.devices.router_7360.Server', '', 'it_network.svg', 0, '', 'icon1') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupBuero" data-role="popup" style="width:150px; height:120px;">
+				<a href="index.php?page=Raum_1_Buero" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Büro</h1></td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.dual('2EG.Licht.Buero', 'EG.Licht.Buero', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+
+	<li data-icon="false">
+		<a href="#popupBadEG" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_toilet.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Gäste Bad</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('BadEGLicht', ['EG.Licht.BadWand_Read', 'EG.Licht.BadDecke_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}	
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupBadEG" data-role="popup" style="width:150px; height:125px;">
+				<a href="index.php?page=Raum_1_Bad" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Bad<br />Decke/Spiegel</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Licht.BadDecke', 'EG.Licht.BadDecke', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Licht.BadWand', 'EG.Licht.BadWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+
+	<li data-icon="false">
+		<a href="#popupKueche" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_cooking.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Küche</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('KuecheRaffSperre', 'EG.Raff.KuecheTuere.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('KuecheRaffASperre', 'EG.Raffstore.KuecheTuere.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('KuecheLicht', ['EG.Licht.KuecheDecke_Read', 'EG.Licht.KuecheSpuele_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ icon.shutter('EG.Raff.KuecheTuere.ReadPos', '', 'EG.Raff.KuecheTuere.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.KuecheTuere.ReadAngle', '', 'EG.Raff.KuecheTuere.ReadAngle', '', '100') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupKueche" data-role="popup" style="width:150px; height:280px;">
+				<a href="index.php?page=Raum_1_Kueche" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Küche<br />Decke/Spüle</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Licht.KuecheDecke', 'EG.Licht.KuecheDecke', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Licht.KuecheSpuele', 'EG.Licht.KuecheSpuele', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.KuecheTuere.move.up', 'EG.Raffstore.KuecheTuere.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.KuecheTuere.stop', 'EG.Raffstore.KuecheTuere.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.KuecheTuere.move.down', 'EG.Raffstore.KuecheTuere.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'EG.Raffstore.KuecheTuere.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'EG.Raffstore.KuecheTuere.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Raffstore.KuecheTuere.sperre', 'EG.Raffstore.KuecheTuere.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Raffstore.KuecheTuere.Autosperre', 'EG.Raffstore.KuecheTuere.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+</ul>
+	
+	
+	
+	
+	
+<ul data-role="listview" data-dividertheme="c" class="tilesSmall3">
+	<li data-icon="false">
+		<a href="#popupEZ" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_dinner.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Esszimmer</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall3">
+							{{ basic.symbol('EZKontakt', 'EG.Kontakt.EZ', '', 'fts_door_open.svg', 0, '', 'icon1') }}
+							{{ basic.symbol('EG.Raff.EZTuereSperre', 'EG.Raff.EZTuere.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EG.Raffstore.EZTuereAutoSperre', 'EG.Raffstore.EZTuere.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EZLicht', ['EG.Licht.EZRandzone_Read', 'EG.Licht.EZEsstisch_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }} 
+							{{ icon.shutter('EG.Raff.EZTuere.ReadPos', '', 'EG.Raff.EZTuere.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.EZTuere.ReadAngle', '', 'EG.Raff.EZTuere.ReadAngle', '', '100') }}<br>
+							{{ basic.symbol('EG.Raff.EZFensterGrossSperre', 'EG.Raff.EZFensterGross.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EG.Raffstore.EZFensterGrossAutoSperre', 'EG.Raffstore.EZFensterGross.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ icon.shutter('EG.Raff.EZFensterGross.ReadPos', '', 'EG.Raff.EZFensterGross.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.EZFensterGross.ReadAngle', '', 'EG.Raff.EZFensterGross.ReadAngle', '', '100') }}<br>
+							{{ basic.symbol('EG.Raff.EZFensterKleinSperre', 'EG.Raff.EZFensterKlein.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EG.Raffstore.EZFensterKleinAutoSperre', 'EG.Raffstore.EZFensterKlein.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ icon.shutter('EG.Raff.EZFensterKlein.ReadPos', '', 'EG.Raff.EZFensterKlein.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.EZFensterKlein.ReadAngle', '', 'EG.Raff.EZFensterKlein.ReadAngle', '', '100') }}<br>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupEZ" data-role="popup" style="width:270px; height:470px;">
+				<a href="index.php?page=Raum_1_EZ" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center colspan="2"><h1>Esszimmer</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Decke</h1>
+							</td>
+							<td align=center>
+								<h1>Türe</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('2EG.Licht.EZRandzone', 'EG.Licht.EZRandzone', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.EZTuere.move.up', 'EG.Raffstore.EZTuere.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.EZTuere.stop', 'EG.Raffstore.EZTuere.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.EZTuere.move.down', 'EG.Raffstore.EZTuere.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Tisch</h1>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'EG.Raffstore.EZTuere.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'EG.Raffstore.EZTuere.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('2EG.Licht.EZEsstisch', 'EG.Licht.EZEsstisch', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Raffstore.EZTuere.sperre', 'EG.Raffstore.EZTuere.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Raffstore.EZTuere.Autosperre', 'EG.Raffstore.EZTuere.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Gross</h1>
+							</td>
+							<td align=center>
+								<h1>Klein</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.EZFensterGross.move.up', 'EG.Raffstore.EZFensterGross.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.EZFensterGross.stop', 'EG.Raffstore.EZFensterGross.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.EZFensterGross.move.down', 'EG.Raffstore.EZFensterGross.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.EZFensterKlein.move.up', 'EG.Raffstore.EZFensterKlein.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.EZFensterKlein.stop', 'EG.Raffstore.EZFensterKlein.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.EZFensterKlein.move.down', 'EG.Raffstore.EZFensterKlein.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('3open', 'EG.Raffstore.EZFensterGross.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('3close', 'EG.Raffstore.EZFensterGross.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('4open', 'EG.Raffstore.EZFensterKlein.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('4close', 'EG.Raffstore.EZFensterKlein.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('22EG.Raffstore.EZFensterGross.sperre', 'EG.Raffstore.EZFensterGross.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('22EG.Raffstore.EZFensterGross.Autosperre', 'EG.Raffstore.EZFensterGross.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('22EG.Raffstore.EZFensterKlein.sperre', 'EG.Raffstore.EZFensterKlein.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('22EG.Raffstore.EZFensterKlein.Autosperre', 'EG.Raffstore.EZFensterKlein.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+
+	<li data-icon="false">
+		<a href="#popupWZ" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_livingroom.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Wohnzimmer<br />Lesebereich</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall3">
+							{{ basic.symbol('Dreambox11', 'AVM.devices.router_7360.Dreambox', '', 'it_network.svg', 0, '', 'icon1') }}
+							{{ basic.symbol('WZKontakt', 'EG.Kontakt.WZ', '', 'fts_door_open.svg', 0, '', 'icon1') }}
+							{{ basic.symbol('EG.Raff.WZTuereSperre', 'EG.Raff.WZTuere.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EG.Raffstore.WZTuereAutoSperre', 'EG.Raffstore.WZTuere.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('WZLeseLicht', ['EG.Licht.WZDecke_Read', 'EG.Licht.WZWand_Read', 'EG.Licht.WZBoxen_Read', 'EG.Licht.Lesebereich_Read', 'EG.Licht.LeseWand_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ icon.shutter('EG.Raff.WZTuere.ReadPos', '', 'EG.Raff.WZTuere.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.WZTuere.ReadAngle', '', 'EG.Raff.WZTuere.ReadAngle', '', '100') }}<br>
+							{{ basic.symbol('EG.Raff.WZFensterSperre', 'EG.Raff.WZFenster.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('EG.Raffstore.WZFensterAutoSperre', 'EG.Raffstore.WZFenster.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ icon.shutter('EG.Raff.WZFenster.ReadPos', '', 'EG.Raff.WZFenster.ReadPos', '', '100') }}
+							{{ icon.blade_z('EG.Raff.WZFenster.ReadAngle', '', 'EG.Raff.WZFenster.ReadAngle', '', '100') }}<br>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupWZ" data-role="popup" style="width:270px; height:470px;">
+				<a href="index.php?page=Raum_1_WZ_Lese" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center colspan="2"><h1>Wohnzimmer<br />Lesebereich</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Wand</h1>
+							</td>
+							<td align=center>
+								<h1>Decke</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('2EG.Licht.WZWand', 'EG.Licht.WZWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+									{{ basic.dual('2EG.Licht.WZDecke', 'EG.Licht.WZDecke', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Box</h1>
+							</td>
+							<td align=center>
+								<h1>Lese Bild/Wand</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('2EG.Licht.WZBoxen', 'EG.Licht.WZBoxen', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Licht.Lesebereich', 'EG.Licht.Lesebereich', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Licht.LeseWand', 'EG.Licht.LeseWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Türe</h1>
+							</td>
+							<td align=center>
+								<h1>Fenster</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.WZTuere.move.up', 'EG.Raffstore.WZTuere.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.WZTuere.stop', 'EG.Raffstore.WZTuere.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.WZTuere.move.down', 'EG.Raffstore.WZTuere.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2EG.Raffstore.WZFenster.move.up', 'EG.Raffstore.WZFenster.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2EG.Raffstore.WZFenster.stop', 'EG.Raffstore.WZFenster.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2EG.Raffstore.WZFenster.move.down', 'EG.Raffstore.WZFenster.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('22open', 'EG.Raffstore.WZTuere.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('22close', 'EG.Raffstore.WZTuere.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'EG.Raffstore.WZFenster.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'EG.Raffstore.WZFenster.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Raffstore.WZTuere.sperre', 'EG.Raffstore.WZTuere.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Raffstore.WZTuere.Autosperre', 'EG.Raffstore.WZTuere.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Raffstore.WZFenster.sperre', 'EG.Raffstore.WZFenster.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2EG.Raffstore.WZFenster.Autosperre', 'EG.Raffstore.WZFenster.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+</ul>
+	
+	
+	
+	
+	
+
+<ul data-role="listview" data-dividertheme="c" class="tilesSmall">
+	<li data-icon="false">
+		<a href="#popupVROG" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_stairs.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Vorraum<br />Stiege</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('OG.Raff.VRSperre', 'OG.Raff.VR.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('OG.Raffstore.VRAutoSperre', 'OG.Raffstore.VR.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('VROGLicht', ['OG.Licht.VRWand_Read', 'EG.Licht.Stiege_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}  
+							{{ icon.shutter('OG.Raff.VR.ReadPos', '', 'OG.Raff.VR.ReadPos', '', '100') }}
+							{{ icon.blade_z('OG.Raff.VR.ReadAngle', '', 'OG.Raff.VR.ReadAngle', '', '100') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupVROG" data-role="popup" style="width:150px; height:125px;">
+				<a href="index.php?page=Raum_2_VR" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Vorraum<br />Stiege/Wand</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2EG.Licht.Stiege', 'EG.Licht.Stiege', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.Licht.VRWand', 'OG.Licht.VRWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+
+	<li data-icon="false">
+		<a href="#popupBadOG" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_bathroom.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Bad</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('OG.Raff.BadSperre', 'OG.Raff.Bad.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('OG.Raffstore.BadAutoSperre', 'OG.Raffstore.Bad.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('BadOGLicht', ['OG.Licht.BadDecke_Read', 'OG.Licht.BadWand_Read', 'OG.Licht.BadSpiegel_Read', 'OG.Licht.BadBox_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ icon.shutter('OG.Raff.Bad.ReadPos', '', 'OG.Raff.Bad.ReadPos', '', '100') }}
+							{{ icon.blade_z('OG.Raff.Bad.ReadAngle', '', 'OG.Raff.Bad.ReadAngle', '', '100') }}	
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupBadOG" data-role="popup" style="width:150px; height:400px;">
+				<a href="index.php?page=Raum_2_Bad" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center colspan="2"><h1>Bad</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Wand</h1>
+							</td>
+							<td align=center>
+								<h1>Decke</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('OG.Licht.BadWand', 'OG.Licht.BadWand', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+									{{ basic.dual('OG.Licht.BadDecke', 'OG.Licht.BadDecke', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Box</h1>
+							</td>
+							<td align=center>
+								<h1>Spiegel</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+									{{ basic.dual('OG.Licht.BadBox', 'OG.Licht.BadBox', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+							<td align=center>
+									{{ basic.dual('OG.Licht.BadSpiegel', 'OG.Licht.BadSpiegel', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+							</td>
+						</tr>
+						<tr>
+							<td align=center colspan="2">
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2OG.Raffstore.Bad.move.up', 'OG.Raffstore.Bad.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2OG.Raffstore.Bad.stop', 'OG.Raffstore.Bad.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2OG.Raffstore.Bad.move.down', 'OG.Raffstore.Bad.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center colspan="2">
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'OG.Raffstore.Bad.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'OG.Raffstore.Bad.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center colspan="2">
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2OG.Raffstore.Bad.sperre', 'OG.Raffstore.Bad.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.Raffstore.Bad.Autosperre', 'OG.Raffstore.Bad.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupSZSR" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_bathroom.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Schlafzimmer<br />Schrankraum</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('OG.Raff.SZSRSperre', 'OG.Raff.SZSR.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('OG.Raffstore.SZAutoSperre', 'OG.Raffstore.SZ.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('SZSRLicht', ['OG.SZDecke.Read', 'OG.Licht.SZWand_Read', 'OG.SR.Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ icon.shutter('OG.Raff.SZSR.ReadPos', '', 'OG.Raff.SZSR.ReadPos', '', '100') }}
+							{{ icon.blade_z('OG.Raff.SZSR.ReadAngle', '', 'OG.Raff.SZSR.ReadAngle', '', '100') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupSZSR" data-role="popup" style="width:150px; height:270px;">
+				<a href="index.php?page=Raum_2_SZ_SR" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>SZ / SR</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2OG.SZDecke.Schalten', 'OG.SZDecke.Schalten', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.SR.Schalten', 'OG.SR.Schalten', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2OG.Raffstore.SZ.move.up', 'OG.Raffstore.SZ.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2OG.Raffstore.SZ.stop', 'OG.Raffstore.SZ.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2OG.Raffstore.SZ.move.down', 'OG.Raffstore.SZ.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'OG.Raffstore.SZ.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'OG.Raffstore.SZ.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2OG.Raffstore.SZ.sperre', 'OG.Raffstore.SZ.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.Raffstore.SZ.Autosperre', 'OG.Raffstore.SZ.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupJona" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_childs_room.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Jona</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('OG.Raff.KiZiJonaSperre', 'OG.Raff.KiZiJona.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('111OG.Raffstore.KiZiJona.Autosperre', 'OG.Raffstore.KiZiJona.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('KiZiJonaLicht', 'OG.KiZiJona.Read', '', 'light_light_dim_100.svg', 1, '', 'icon1') }}  
+							{{ icon.shutter('OG.Raff.KiZiJona.ReadPos', '', 'OG.Raff.KiZiJona.ReadPos', '', '100') }}
+							{{ icon.blade_z('OG.Raff.KiZiJona.ReadAngle', '', 'OG.Raff.KiZiJona.ReadAngle', '', '100') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupJona" data-role="popup" style="width:150px; height:275px;">
+				<a href="index.php?page=Raum_2_KiZi_Jona" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Jona</h1></td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.dual('2OG.KiZiJona.Schalten', 'OG.KiZiJona.Schalten', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2OG.Raffstore.KiZiJona.move.up', 'OG.Raffstore.KiZiJona.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2OG.Raffstore.KiZiJona.stop', 'OG.Raffstore.KiZiJona.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2OG.Raffstore.KiZiJona.move.down', 'OG.Raffstore.KiZiJona.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'OG.Raffstore.KiZiJona.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'OG.Raffstore.KiZiJona.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2OG.Raffstore.KiZiJona.sperre', 'OG.Raffstore.KiZiJona.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.Raffstore.KiZiJona.Autosperre', 'OG.Raffstore.KiZiJona.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupGast" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_visit_guests.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Meditation</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('2OG.Raff.KiZiWestSperre', 'OG.Raff.KiZiWest.ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('2OG.Raffstore.KiZiWestAutoSperre', 'OG.Raffstore.KiZiWest.Autosperre', '', 'time_manual_mode.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('2KiZiWestLicht', 'OG.KiZiWest.Read', '', 'light_light_dim_100.svg', 1, '', 'icon1') }}
+							{{ icon.shutter('2OG.Raff.KiZiWest.ReadPos', '', 'OG.Raff.KiZiWest.ReadPos', '', '100') }}
+							{{ icon.blade_z('2OG.Raff.KiZiWest.ReadAngle', '', 'OG.Raff.KiZiWest.ReadAngle', '', '100') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupGast" data-role="popup" style="width:150px; height:275px;">
+				<a href="index.php?page=Raum_2_KiZi_Gast" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Meditation</h1></td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.dual('2OG.KiZiWest.Schalten', 'OG.KiZiWest.Schalten', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2OG.Raffstore.KiZiWest.move.up', 'OG.Raffstore.KiZiWest.move', 'Auf', 'arrow-u', 0, 'mini', 'icon1') }}
+									{{ basic.button('2OG.Raffstore.KiZiWest.stop', 'OG.Raffstore.KiZiWest.stop', 'Stop', 'delete', 1, 'mini', 'icon1')}}
+									{{ basic.button('2OG.Raffstore.KiZiWest.move.down', 'OG.Raffstore.KiZiWest.move', 'Ab', 'arrow-d', 1, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.button('2open', 'OG.Raffstore.KiZiWest.angle', 'open', '', 0, 'mini', 'icon1') }}
+									{{ basic.button('2close', 'OG.Raffstore.KiZiWest.angle', 'close', '', 100, 'mini', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2OG.Raffstore.KiZiWest.sperre', 'OG.Raffstore.KiZiWest.sperre', 'secur_open.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2OG.Raffstore.KiZiWest.Autosperre', 'OG.Raffstore.KiZiWest.Autosperre', 'time_manual_mode.svg', 'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popusvgB" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}control_building_empty.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Nebengebäude</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('NGB.Melder.StatusAnwesend', 'NGB.Melder.StatusAnwesend', '', 'status_available.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('NGB.Licht.Mitte.Read1', ['NGB.Licht.Mitte.Read', 'NGB.Licht.Werkbank.Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('NGB.Schuko.Heizluefter.Read1', 'NGB.Schuko.Heizluefter.Read', '', 'weather_frost.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('NGB.Schuko.Fenster.Read1', 'NGB.Schuko.Fenster.Read', '', 'message_socket_ch.svg', 1, '', 'icon1') }}
+							{{ basic.float('NGB.Melder.Temperatur', 'NGB.Melder.Temperatur', '°') }}<br>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popusvgB" data-role="popup" style="width:150px; height:250px;">
+				<a href="index.php?page=Raum_0_NGB" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Nebengebäude</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Mitte</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('22NGB.Licht.Mitte', 'NGB.Licht.Mitte', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('22NGB.Licht.Mitte.Sperre', 'NGB.Licht.Mitte.Sperre', 'secur_locked.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Werkbank</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2NGB.Licht.Werkbank', 'NGB.Licht.Werkbank', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2NGB.Licht.Werkbank.Sperre', 'NGB.Licht.Werkbank.Sperre', 'secur_locked.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupVG" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}light_garage.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Vorgarten</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.float('LWZ.outsideTemp', 'LWZ.outsideTemp', '°') }}<br>
+							{{ basic.symbol('AussenLicht', 'AB.Licht.Eingang_Read', '', 'light_light_dim_100.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('AB.Licht.Eingang_ReadSperre', 'AB.Licht.Eingang_ReadSperre', '', 'secur_locked.svg', 1, '', 'icon1') }}
+							{{ basic.symbol('VG.Melder.StatusAnwesend', 'VG.Melder.StatusAnwesend', '', 'status_available.svg', 1, '', 'icon1') }}
+							{{ basic.formula('VG.Melder.StatusAnwesend.Uhr', 'VG.Melder.StatusAnwesend.Uhr', 'short') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupVG" data-role="popup" style="width:150px; height:150px;">
+				<a href="index.php?page=Raum_0_Vorgarten" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Vorgarten</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Eingang</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2AB.Licht.Eingang', 'AB.Licht.Eingang', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2AB.Licht.Eingang.Sperre', 'AB.Licht.Eingang.Sperre', 'time_automatic.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupG" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}scene_garden.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Garten</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('AB.Licht.Terrasse', ['AB.Licht.Terrasse_Read', 'AB.Licht.LEDWasserfall_Read', 'AB.Licht.SpotsEZ_Read', 'AB.Licht.SpotsWZ_Read', 'AB.Licht.Steinmauer_Read'], '', 'light_light_dim_100.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('AussenSchuko', ['AB.Schuko.Terrasse_Read', 'AB.Schuko.Wasserfall_Read'], '', 'message_socket_ch.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('AB.Schuko.Terrasse_ReadSperre', ['AB.Schuko.Terrasse_ReadSperre', 'AB.Schuko.Wasserfall_ReadSperre'], '', 'secur_locked.svg', 1, 'or', 'icon1') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupG" data-role="popup" style="width:250px; height:350px;">
+				<a href="index.php?page=Raum_0_Garten" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center><h1>Garten</h1></td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>WZ Decke / WZ Spots / EZ Spots</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2ABLichtTerrasse', 'AB.Licht.Terrasse', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2SpotsWZTerrasse', 'AB.Licht.TerrasseWZSpots', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2SpotsEZTerrasse', 'AB.Licht.TerrasseEZSpots', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Wasserfall / LED / Steinmauer</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2AB.Schuko.Wasserfall', 'AB.Schuko.Wasserfall', 'message_socket_ch.svg', 'message_socket_ch.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2ABLichtLEDWasserfall', 'AB.Licht.LEDWasserfall', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2Steinmauer', 'AB.Licht.Steinmauer', 'light_light.svg', 'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<h1>Steckdose</h1>
+							</td>
+						</tr>
+						<tr>
+							<td align=center>
+								<span data-role="controlgroup" data-type="horizontal">
+									{{ basic.dual('2AB.Schuko.Terrasse', 'AB.Schuko.Terrasse', 'message_socket_ch.svg', 'message_socket_ch.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+									{{ basic.dual('2AB.Schuko.Terrasse.Sperre', 'AB.Schuko.Terrasse.Sperre', 'time_automatic.svg', 'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+								</span>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupWecker" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}time_clock.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Alarm</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.text('Wecker.Eins', 'Wecker.Eins', '5:30', '', 1, 0) }}
+							{{ basic.text('Wecker.Zwei', 'Wecker.Zwei', '5:52', '', 1, 0) }}
+							{{ basic.text('Wecker.Drei', 'Wecker.Drei', '6:17', '', 1, 0) }}
+							{{ basic.text('Wecker.Vier', 'Wecker.Vier', 'x:xx', '', 1, 0) }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupWecker" data-role="popup" style="width:150px; height:150px;">
+				<a href="index.php?page=Wecker" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center>
+						<tr>
+							<td align=center>{{ basic.flip('Wecker.Eins', 'Wecker.Eins', '5:00', '5:30') }}</td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.flip('Wecker.Zwei', 'Wecker.Zwei', '5:25', '5:52') }}</td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.flip('Wecker.Drei', 'Wecker.Drei', '5:50', '6:17') }}</td>
+						</tr>
+						<tr>
+							<td align=center>{{ basic.flip('Wecker.Vier', 'Wecker.Vier', 'x:xx', 'x:xx') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="#popupNetwork" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}it_network.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Network</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('InfoNetwork', ['AVM.devices.Carina', 'AVM.devices.OmaHeidi'], '', 'message_info.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('CarinaSmart', ['AVM.devices.repeater_eg.CarinaSmart', 'AVM.devices.repeater_og.CarinaSmart'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('FuxlSmart', ['AVM.devices.repeater_eg.FuxlSmart', 'AVM.devices.repeater_og.FuxlSmart'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('OmaHeidi', ['AVM.devices.repeater_eg.OmaHeidi', 'AVM.devices.repeater_og.OmaHeidi'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupNetwork" data-role="popup" style="width:270px; height:260px;">
+				<a href="index.php?page=Network" data-role="button" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Details</a>
+					<table align=center width="100%">
+						<tr>
+							<td width="40%" align=center><h1>Carina</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Carina', 'AVM.devices.Carina', 'Info', 'Off') }}</td>
+						</tr>
+						<tr>
+							<td width="40%" align=center><h1>Oma Heidi</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Oma Heidi', 'AVM.devices.OmaHeidi', 'Info', 'Off') }}</td>
+						</tr>
+						<tr>
+							<td width="40%" align=center><h1>Oma Rosi</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Oma Rosi', 'AVM.devices.OmaRosi', 'Info', 'Off') }}</td>
+						</tr>
+						<tr>
+							<td width="40%" align=center><h1>Opa Pepi</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Opa Pepi', 'AVM.devices.OpaPepi', 'Info', 'Off') }}</td>
+						</tr>
+						<tr>
+							<td width="40%" align=center><h1>Server</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Server', 'AVM.devices.Server', 'Info', 'Off') }}</td>
+						</tr>
+						<tr>
+							<td width="40%" align=center><h1>Dreambox</h1></td>
+							<td width="60%" align=center>{{ basic.flip('Dreambox', 'AVM.devices.Dreambox', 'Info', 'Off') }}</td>
+						</tr>
+					</table>
+			</div>
+		</a>
+	</li>
+	
+	
+	
+	
+	
+	<li data-icon="false">
+		<a href="index.php?page=Dreambox">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}it_television.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Dreambox</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+							{{ basic.symbol('DreamStandby', 'enigma2.dm7020hd.e2instandby', '', 'it_television.svg', 0, '', 'icon1') }}
+						</div>
+					</td>
+				</tr>
+			</table>
+		</a>
+	</li>
+
+
+	<li data-icon="false">
+		<a href="#popupLichtRaff" data-rel="popup">
+			<table width=100% align=center valign=top>
+				<tr>
+					<td width=20%>
+						<img class="icon" src="{{ icon0 }}sani_domestic_waterworks.svg"/>
+					</td>
+					<td>
+						<h1 align=right>Tools</h1>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" width=80%>
+						<div class="ui-li-asideSmall">
+
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div id="popupLichtRaff" data-role="popup" style="width:220px; height:50px;">
+				<a href="index.php?page=Raffstores">
+					<img class="icon" src="{{ icon0 }}fts_shutter_100.svg"/>
+				</a>
+				<a href="index.php?page=Licht">
+					<img class="icon" src="{{ icon0 }}light_light_dim_100.svg"/>
+				</a>
+				<a href="index.php?page=System">
+					<img class="icon" src="{{ icon0 }}it_pc.svg"/>
+				</a>
+				<a href="index.php?page=Settings">
+					<img class="icon" src="{{ icon0 }}edit_settings.svg"/>
+				</a>
+			</div>
+		</a>
+	</li>
+</ul>

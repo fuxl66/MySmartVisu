@@ -1,0 +1,146 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+{% import "widget_uzsu.html" as uzsu %}
+
+	<h1><img class="icon" src='{{ icon0 }}edit_settings.svg'/>Settings</h1>
+
+	<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Settings</h3>
+					 <table align=center valign=middle>
+						<tr>
+							<td align=right><h2>Raffstore<br />Automatik Nacht</h2></td>
+							<td align=left>{{ basic.dual('ZS.Raffstore.Auto.Nacht', 'ZS.Raffstore.Auto.Nacht', icon0~'scene_night.svg', icon0~'scene_night.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Raffstore<br />Automatik Früh</h2></td>
+							<td align=left>{{ basic.dual('ZS.Raffstore.Auto.Morgen', 'ZS.Raffstore.Auto.Morgen', icon0~'weather_sunrise.svg', icon0~'weather_sunrise.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Raffstore<br />Automatik Früh SZ</h2></td>
+							<td align=left>{{ basic.dual('ZS.Raffstore.Auto.SZ', 'ZS.Raffstore.Auto.SZ', icon0~'weather_sunrise.svg', icon0~'weather_sunrise.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Beschattung<br />Sperre</h2></td>
+							<td align=left>{{ basic.dual('WS.UNDLogikSperre', 'WS.UNDLogikSperre', icon0~'fts_blade_z_sun.svg', icon0~'time_manual_mode.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Jona Zimmer<br />Mittagsautomatik</h2></td>
+							<td align=left>{{ uzsu.uzsu_icon('1ZS.JonaSchlafen.UZSU', 'ZS.JonaSchlafen.UZSU', 'Jona Mittagsschlaf') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Jona Zimmer<br />Abendautomatik</h2></td>
+							<td align=left>{{ uzsu.uzsu_icon('1ZS.JonaSchlafenNacht.UZSU', 'ZS.JonaSchlafenNacht.UZSU', 'Jona Abendautomatik') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>WarmWasser<br />Automatik</h2></td>
+							<td align=left>{{ basic.dual('ZS.WW', 'ZS.WW', icon0~'sani_water_tap.svg', icon0~'sani_water_tap.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>KWL<br />Automatik</h2></td>
+							<td align=left>{{ basic.dual('ZS.KWL', 'ZS.KWL', icon0~'vent_ventilation.svg', icon0~'vent_ventilation.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Wärmeschutz<br />Automatik</h2></td>
+							<td align=left>{{ basic.dual('ZS.WaermeschutzPlus', 'ZS.WaermeschutzPlus', icon0~'secur_heat_protection.svg', icon0~'secur_heat_protection.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Status<br />Abwesend</h2></td>
+							<td align=left>{{ basic.dual('111Status.Abwesend', 'Status.Abwesend', icon0~'status_away_2.svg', icon0~'status_away_2.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Sommerbetrieb</h2></td>
+							<td align=left>{{ basic.dual('Status.Sommerbetrieb', 'Status.Sommerbetrieb', icon0~'weather_summer.svg', icon0~'weather_summer.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+					</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Notify</h3>
+					 <table align=center valign=middle>
+						<tr>
+							<td align=right><h2>Regen</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Android.Regen', 'ZS.Notify.Android.Regen', icon0~'weather_rain.svg', icon0~'weather_rain.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Windalarm </h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Android.Wind', 'ZS.Notify.Android.Wind', icon0~'weather_wind.svg', icon0~'weather_wind.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Beschattung</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Android.Beschattung', 'ZS.Notify.Android.Beschattung', icon0~'fts_blade_z_sun.svg', icon0~'fts_blade_z_sun.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Eingang</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Android.Eingang', 'ZS.Notify.Android.Eingang', icon0~'fts_door_open.svg', icon0~'fts_door_open.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Status Mail</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Mail', 'ZS.Notify.Mail', icon0~'message_mail.svg', icon0~'message_mail.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Status Push</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Push', 'ZS.Notify.Push', icon0~'it_smartphone.svg', icon0~'it_smartphone.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>NGB Frost Alarm</h2></td>
+							<td align=left>{{ basic.dual('ZS.Notify.Android.NGBFrost', 'ZS.Notify.Android.NGBFrost', icon0~'weather_frost.svg', icon0~'weather_frost.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>WarmWasser<br />Pushinfo</h2></td>
+							<td align=left>{{ basic.dual('ZS.WW.Info', 'ZS.WW.Info', icon0~'it_smartphone.svg', icon0~'it_smartphone.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>KWL<br />Pushinfo</h2></td>
+							<td align=left>{{ basic.dual('ZS.KWL.Info', 'ZS.KWL.Info', icon0~'it_smartphone.svg', icon0~'it_smartphone.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+
+					</table>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Errors</h3>
+					 <table align=center valign=middle>
+						<tr>
+							<td align=right><h2>Wetterstation<br />Temperatur Sensor</h2></td>
+							<td align=left>{{ basic.text('WS.Temperatur.Stoerung', 'WS.Temperatur.Stoerung', 'EIN', 'AUS', 1, 0) }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Wetterstation<br />Wind Sensor</h2></td>
+							<td align=left>{{ basic.text('WS.Windstaerke.Stoerung', 'WS.Windstaerke.Stoerung', 'EIN', 'AUS', 1, 0) }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Wetterstation<br />GPS Sensor</h2></td>
+							<td align=left>{{ basic.text('WS.GPSStoerung', 'WS.GPSStoerung', 'EIN', 'AUS', 1, 0) }}</td>
+						</tr>
+						<tr>
+							<td align=right><h2>Heizung<br />Anzahl Fehlerberichte</h2></td>
+							<td align=left>{{ basic.float('LWZ.numberOfFaults', 'LWZ.numberOfFaults') }}</td>
+						</tr>
+					</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

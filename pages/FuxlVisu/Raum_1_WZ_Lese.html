@@ -1,0 +1,407 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_livingroom.svg'/>Lesebereich, Wohnzimmer</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZWand', 'EG.Licht.WZWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>LED Boxen</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZBoxen', 'EG.Licht.WZBoxen', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZDecke', 'EG.Licht.WZDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Lesebereich</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.Lesebereich', 'EG.Licht.Lesebereich', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Lesebereich Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.LeseWand', 'EG.Licht.LeseWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Türe Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.WZTuere.move.up', 'EG.Raffstore.WZTuere.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('EG.Raffstore.WZTuere.stop', 'EG.Raffstore.WZTuere.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.WZTuere.move.down', 'EG.Raffstore.WZTuere.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupWZTpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupWZTpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'EG.Raffstore.WZTuere.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'EG.Raffstore.WZTuere.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'EG.Raffstore.WZTuere.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'EG.Raffstore.WZTuere.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'EG.Raffstore.WZTuere.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'EG.Raffstore.WZTuere.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'EG.Raffstore.WZTuere.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'EG.Raffstore.WZTuere.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'EG.Raffstore.WZTuere.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'EG.Raffstore.WZTuere.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('WZTuerePosWert', 'EG.Raffstore.WZTuere.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupWZTangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupWZTangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'EG.Raffstore.WZTuere.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'EG.Raffstore.WZTuere.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'EG.Raffstore.WZTuere.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'EG.Raffstore.WZTuere.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'EG.Raffstore.WZTuere.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'EG.Raffstore.WZTuere.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'EG.Raffstore.WZTuere.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'EG.Raffstore.WZTuere.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'EG.Raffstore.WZTuere.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'EG.Raffstore.WZTuere.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('WZTuereAngleWert', 'EG.Raffstore.WZTuere.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'EG.Raffstore.WZTuere.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'EG.Raffstore.WZTuere.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.WZTuere.sperre', 'EG.Raffstore.WZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.WZTuere.Autosperre', 'EG.Raffstore.WZTuere.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('1EG.Raffstore.WZTuere', '', 'EG.Raffstore.WZTuere.move', 'EG.Raffstore.WZTuere.stop', 'EG.Raffstore.WZTuere.position', 'EG.Raffstore.WZTuere.stop', 'EG.Raffstore.WZTuere.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('1angle0', 'EG.Raffstore.WZTuere.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle50', 'EG.Raffstore.WZTuere.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle100', 'EG.Raffstore.WZTuere.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('1EG.Raffstore.WZTuere.angle', 'EG.Raffstore.WZTuere.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1EG.Raffstore.WZTuere.sperre', 'EG.Raffstore.WZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1EG.Raffstore.WZTuere.Autosperre', 'EG.Raffstore.WZTuere.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Fenster Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.WZFenster.move.up', 'EG.Raffstore.WZFenster.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('EG.Raffstore.WZFenster.stop', 'EG.Raffstore.WZFenster.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.WZFenster.move.down', 'EG.Raffstore.WZFenster.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupWZFpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupWZFpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'EG.Raffstore.WZFenster.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'EG.Raffstore.WZFenster.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'EG.Raffstore.WZFenster.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'EG.Raffstore.WZFenster.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'EG.Raffstore.WZFenster.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'EG.Raffstore.WZFenster.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'EG.Raffstore.WZFenster.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'EG.Raffstore.WZFenster.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'EG.Raffstore.WZFenster.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'EG.Raffstore.WZFenster.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('WZFensterPosWert', 'EG.Raffstore.WZFenster.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupWZFangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupWZFangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'EG.Raffstore.WZFenster.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'EG.Raffstore.WZFenster.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'EG.Raffstore.WZFenster.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'EG.Raffstore.WZFenster.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'EG.Raffstore.WZFenster.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'EG.Raffstore.WZFenster.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'EG.Raffstore.WZFenster.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'EG.Raffstore.WZFenster.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'EG.Raffstore.WZFenster.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'EG.Raffstore.WZFenster.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('WZFensterAngleWert', 'EG.Raffstore.WZFenster.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'EG.Raffstore.WZFenster.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'EG.Raffstore.WZFenster.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.WZFenster.sperre', 'EG.Raffstore.WZFenster.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('1RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.WZFenster.Autosperre', 'EG.Raffstore.WZFenster.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('11EG.Raffstore.WZFenster', '', 'EG.Raffstore.WZFenster.move', 'EG.Raffstore.WZFenster.stop', 'EG.Raffstore.WZFenster.position', 'EG.Raffstore.WZFenster.stop', 'EG.Raffstore.WZFenster.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('11angle0', 'EG.Raffstore.WZFenster.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('11angle50', 'EG.Raffstore.WZFenster.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('11angle100', 'EG.Raffstore.WZFenster.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('11EG.Raffstore.WZFenster.angle', 'EG.Raffstore.WZFenster.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('11EG.Raffstore.WZFenster.sperre', 'EG.Raffstore.WZFenster.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('11EG.Raffstore.WZFenster.Autosperre', 'EG.Raffstore.WZFenster.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

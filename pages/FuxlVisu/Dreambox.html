@@ -1,0 +1,44 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+{% block content %}
+{% import "widget_enigma2.html" as enigma2 %}
+
+<h1><img class="icon" src="{{ icon0 }}it_television.svg"/>Dreambox</h1>
+
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false">
+			<h3>aktueller Sender</h3>
+				{{ enigma2.status_info('status_info', 'enigma2.dm7020hd.e2instandby', 'enigma2.dm7020hd.current.servicename', 'enigma2.dm7020hd.current.eventtitle', 'enigma2.dm7020hd.current.eventdescription', 'enigma2.dm7020hd.current.e2videowidth', 'enigma2.dm7020hd.current.e2videoheight', 'enigma2.dm7020hd.e2vpid', 'enigma2.dm7020hd.e2apid') }}
+		</div>
+	</div>
+</div>
+
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false">
+			<h3>Remote</h3>
+				{{ enigma2.remote2('enigma2.dm7020hd.remote', 'enigma2.dm7020hd.remote', 'mini', '') }}
+		</div>
+	</div>
+</div>
+
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false">
+			<h3>System-Info</h3>
+				{{ enigma2.config_info('dm7020hd_info', 'enigma2.dm7020hd.e2model', 'enigma2.dm7020hd.e2webifversion', 'enigma2.dm7020hd.e2enigmaversion', 'enigma2.dm7020hd.e2imageversion', 'enigma2.dm7020hd.e2dhcp', 'enigma2.dm7020hd.e2ip', 'enigma2.dm7020hd.e2gateway', 'enigma2.dm7020hd.e2netmask', 'enigma2.dm7020hd.e2mac') }}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

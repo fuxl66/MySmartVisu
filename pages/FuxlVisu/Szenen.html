@@ -1,0 +1,34 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+{% extends "rooms.html" %}
+
+{% block content %}
+{% import "icon.html" as icon %}
+
+    <div class="block">
+    <div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Szenen</h3>
+				<table agign=center>
+					<tr>
+						<td align=right>TV schauen</td>
+						<td align=center> <div class="set">{{ basic.button('TV', 'Szenen.LichtRaff', '', 'grid', 13, 'midi') }}</div></td>
+                    </tr>
+					<tr>
+						<td align=right>Markus muss arbeiten</td>
+						<td align=center> <div class="set">{{ basic.button('Arbeit', 'Szenen.LichtRaff', '', 'grid', 14, 'midi') }}</div></td>
+					</tr>			
+				</table>
+			</div>
+	</div>
+	</div>
+	
+{% endblock %}
+

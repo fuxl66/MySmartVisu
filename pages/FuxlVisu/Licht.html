@@ -1,0 +1,332 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+<div class="block">
+<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false" ><h2>Erdgeschoss</h2>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Vorraum</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_hall.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.VRDecke', 'EG.Licht.VRDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchten</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.VRWand', 'EG.Licht.VRWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Technik-, Wirtschaftsraum</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_laundry_room_fem.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Technikraum</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.TR', 'EG.Licht.TR', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle><div class="set">{{ basic.dual('EG.Licht.TR.Sperre', 'EG.Licht.TR.Sperre', icon0~'time_automatic.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wirtschaftsraum</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WR', 'EG.Licht.WR', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+ 
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Büro</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_office.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.Buero', 'EG.Licht.Buero', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr> 
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Bad</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_toilet.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.BadDecke', 'EG.Licht.BadDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spiegelleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.BadWand', 'EG.Licht.BadWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+		
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Küche</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_cooking.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.KuecheDecke', 'EG.Licht.KuecheDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spüle</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.KuecheSpuele', 'EG.Licht.KuecheSpuele', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Esszimmer</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_dinner.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZRandzone', 'EG.Licht.EZRandzone', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Tischbeleuchtung</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZEsstisch', 'EG.Licht.EZEsstisch', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Gehweg</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZGang', 'EG.Licht.EZGang', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Wohnzimmer, Lesebereich</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_livingroom.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZWand', 'EG.Licht.WZWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>LED Boxen</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZBoxen', 'EG.Licht.WZBoxen', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.WZDecke', 'EG.Licht.WZDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Lesebereich</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.Lesebereich', 'EG.Licht.Lesebereich', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Lesebereich Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.LeseWand', 'EG.Licht.LeseWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+<br clear="all">
+
+<div class="block">
+<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false" ><h2>Obergeschoss</h2>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Vorraum</h2></td>
+				<td width=175 align=center  valign=middlecolspan="2"><h3><img class="icon" src='{{ icon0 }}scene_stairs.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Stiegenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.Stiege', 'EG.Licht.Stiege', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchten</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.VRWand', 'OG.Licht.VRWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Bad</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_bathroom.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadDecke', 'OG.Licht.BadDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadWand', 'OG.Licht.BadWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>LED Box</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadBox', 'OG.Licht.BadBox', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spiegelleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadSpiegel', 'OG.Licht.BadSpiegel', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+ 
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Schlafzimmer, Schrankraum</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_sleeping.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.SZDecke.Schalten', 'OG.SZDecke.Schalten', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Schrankraum</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.SR.Schalten', 'OG.SR.Schalten', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr> 
+
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Jona</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_childs_room.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.KiZiJona.Schalten', 'OG.KiZiJona.Schalten', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		<hr>
+		
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Gästezimmer</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}scene_visit_guests.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.KiZiWest.Schalten', 'OG.KiZiWest.Schalten', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+<br clear="all">
+
+<div class="block">
+<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false" ><h2>Aussenbereich</h2>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=175 align=center valign=middle><h2>Eingang</h2></td>
+				<td width=175 align=center valign=middle colspan="2"><h3><img class="icon" src='{{ icon0 }}light_outdoor.svg'/></h3></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('AB.Licht.Eingang', 'AB.Licht.Eingang', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle><div class="set">{{ basic.dual('AB.Licht.Eingang.Sperre', 'AB.Licht.Eingang.Sperre', icon0~'time_automatic.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</div>
+{% endblock %}
+

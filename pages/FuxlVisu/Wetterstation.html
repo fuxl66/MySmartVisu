@@ -1,0 +1,339 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * ----------------------------------------------------------------------------- 
+ */
+ 
+{% extends "rooms.html" %}
+{% block content %}
+
+<h1><img class="icon" src='{{ icon0 }}weather_directions.svg'/>Wetterstation</h1>
+
+	<div class="block">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+		<h3>Aktuelle Wetterdaten</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Außentemperatur</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Temperatur', 'WS.Temperatur', '°') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Höchsttemperatur<br />(12h)</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Temperatur.MAX', 'WS.Temperatur.MAX', '°') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Tiefsttemperatur<br />(12h)</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Temperatur.MIN', 'WS.Temperatur.MIN', '°') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Windstärke</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Windstaerke.KMH', 'WS.Windstaerke.kmH',  'km/h') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Windstärke<br />MAX (12h)</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Windstaerke.MAX', 'WS.Windstaerke.MAX',  'km/h') }}</div>
+				</td>
+			</tr> 
+			<tr>
+				<td width=150 align=right valign=middle><h3>Helligkeit</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Helligkeit', 'WS.Helligkeit', 'lux') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Regen</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.text('WSRegentxt', 'WS.Regen', 'Ja', 'Nein', 1, 0) }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h6>last change</h6></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Regen.Uhr', 'WS.Regen.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h6>previous change</h6></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Regen.Uhr2', 'WS.Regen.Uhr2', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h3>Tageszeit</h3></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.TagNacht', 'WS.TagNacht', 'Nacht', 'Tag', 1, 0) }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h6>last change</h6></td>
+				<td width=150 align=center valign=middle>
+					<div class="<div class="set">{{ basic.formula('WS.TagNacht.Uhr', 'WS.TagNacht.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=150 align=right valign=middle><h6>previous change</h6></td>
+				<td width=150 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.TagNacht.Uhr2', 'WS.TagNacht.Uhr2', 'short') }}</div>
+				</td>
+			</tr>
+		</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Beschattung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Osten<br />10-160°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.Ost.Status', 'WS.Fassade.Ost.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.Ost.position', 'WS.Fassade.Ost.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.Ost.angle', 'WS.Fassade.Ost.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreOst', 'WS.Fassade.SperreOst', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Süden EG<br />120-270°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.Sued.Status', 'WS.Fassade.Sued.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.Sued.position', 'WS.Fassade.Sued.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.Sued.angle', 'WS.Fassade.Sued.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreSEG', 'WS.Fassade.SperreSEG', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Süden OG<br />120-270°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.SuedOG.Status', 'WS.Fassade.SuedOG.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.SuedOG.position', 'WS.Fassade.SuedOG.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.SuedOG.angle', 'WS.Fassade.SuedOG.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreSOG', 'WS.Fassade.SperreSOG', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Süd/West<br />190-270° / 60°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.SuedWest.Status', 'WS.Fassade.SuedWest.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.SuedWest.position', 'WS.Fassade.SuedWest.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.SuedWest.angle', 'WS.Fassade.SuedWest.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreSW', 'WS.Fassade.SperreSW', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Westen EG<br />220-350°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.West.Status', 'WS.Fassade.West.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.West.position', 'WS.Fassade.West.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.West.angle', 'WS.Fassade.West.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreWEG', 'WS.Fassade.SperreWEG', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=right valign=middle><h3>Westen OG<br />220-350°</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Fassade.WestOG.Status', 'WS.Fassade.WestOG.Status', 'Aus', 'Ein', 0, 1) }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.WestOG.position', 'WS.Fassade.WestOG.position', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.Fassade.WestOG.angle', 'WS.Fassade.WestOG.angle', '%') }}</div>
+				</td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.dual('WS.Fassade.SperreWOG', 'WS.Fassade.SperreWOG', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=right valign=middle colspan="2"><h3>Sonnenstand<br />Anzimut</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.SonneAnzimut', 'WS.SonneAnzimut', 'angle') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=right valign=middle colspan="2"><h3>Sonnenstand<br />Elevation</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.float('WS.SonneElevation', 'WS.SonneElevation', 'angle') }}</div><br />
+				</td>
+				<td colspan="2">
+				<a href="index.php?page=Raffstores">
+					<img class="icon" src="{{ icon0 }}fts_shutter_50.svg"/></a>
+				</td>
+			</tr>
+		</table>
+			</div>
+			<div data-role="collapsible">
+		<h3>Grenzwerte</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td width=100 align=center valign=middle colspan="3"><h3>Temperatur</h3></td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW1 = 0°C</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Temperatur.GW1', 'WS.Temperatur.GW1', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Temperatur.GW1.Uhr', 'WS.Temperatur.GW1.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW2 = 15°C</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Temperatur.GW2', 'WS.Temperatur.GW2', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Temperatur.GW2.Uhr', 'WS.Temperatur.GW2.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW3 = 25°C</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Temperatur.GW3', 'WS.Temperatur.GW3', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Temperatur.GW3.Uhr', 'WS.Temperatur.GW3.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW4 = 30°C</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Temperatur.GW4', 'WS.Temperatur.GW4', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Temperatur.GW4.Uhr', 'WS.Temperatur.GW4.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=center valign=middle colspan="3"><h3>Windstärke</h3></td>
+			</tr>
+			<tr>
+				<td width=100 align=left valign=middle><h3>GW1 = 55 km/h</h3></td>
+				<td width=50 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Windstaerke.GW1', 'WS.Windstaerke.GW1', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Windstaerke.GW1Uhr', 'WS.Windstaerke.GW1Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW2 = 35 km/h</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Windstaerke.GW2', 'WS.Windstaerke.GW2', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Windstaerke.GW2Uhr', 'WS.Windstaerke.GW2Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=100 align=center valign=middle colspan="3"><h3>Helligkeit</h3></td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW1 = 40 kLux</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Helligkeit.GW1', 'WS.Helligkeit.GW1', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Helligkeit.GW1.Uhr', 'WS.Helligkeit.GW1.Uhr', 'short') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW2 = 50 kLux</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Helligkeit.GW2', 'WS.Helligkeit.GW2', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Helligkeit.GW2.Uhr', 'WS.Helligkeit.GW2.Uhr', 'short') }}</div>
+				</td>
+			</tr>   
+			<tr>
+				<td width=75 align=left valign=middle><h3>GW3 = 250 Lux</h3></td>
+				<td width=75 align=center valign=middle>
+					<div class="set">{{ basic.text('WS.Daemmerung.GW2', 'WS.Daemmerung.GW2', 'Ein', 'Aus', 1, 0) }}</div>
+				</td>
+				<td width=100 align=center valign=middle>
+					<div class="set">{{ basic.formula('WS.Daemmerung.GW2.Uhr', 'WS.Daemmerung.GW2.Uhr', 'short') }}</div>
+				</td>
+			</tr>   
+			</table>
+			</div>
+		</div>
+	</div>
+	<br clear="all">
+	<div class="block" style="width:100%">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Täglich</h3>
+				{{ plot.period('InOutNorth', ['WS.Temperatur', 'LWZ.outsideTemp', 'LWZ.roomTempRC'], 'max', '1d', '', '', '', '', ['Out', 'North', 'In'], ['#f00', '#00a', '#aa0'], '', '', '1h'  ) }}<br>
+				{{ plot.period('kmht', 'WS.Windstaerke.kmH', 'max', '1d', 0,0,'' , '', 'Windstärke km/h', '', '', '', '1h'  ) }}<br>
+				{{ plot.period('Luxt', 'WS.Helligkeit', 'max', '1d', 0,0,'' , '', 'Helligkeit Lux', '', '', '', '1h'  ) }}<br>
+				{{ plot.period('Anzimut', ['WS.SonneAnzimut', 'WS.SonneElevation'], 'max', '1d', '', -50, 360, '', ['Anzimut °', 'Elevation °'], ['#aa0', '#00a'], '', '', '1h'  ) }}
+			</div>
+			<div data-role="collapsible" class="hidden-chart">
+				<h3>Wöchentlich</h3>
+				{{ plot.period('InOutNorthw', ['WS.Temperatur', 'LWZ.outsideTemp', 'LWZ.roomTempRC'], 'max', '1w', '', '', '', '', ['Outdoor', 'North', 'In'], ['#f00', '#00a', '#aa0'], '', '', '1h'  ) }}<br>
+				{{ plot.period('kmhw', 'WS.Windstaerke.kmH', 'max', '1w', 0,0,'' , '', 'Windstärke km/h', '', '', '', '1h'  ) }}
+			</div>
+			<div data-role="collapsible" class="hidden-chart">
+				<h3>Monatlich</h3>
+				{{ plot.period('InOutNorthm', ['WS.Temperatur', 'LWZ.outsideTemp', 'LWZ.roomTempRC'], 'max', '1m', '', '', '', '', ['Outdoor', 'North', 'In'], ['#f00', '#00a', '#aa0'], '', '', '12h'  ) }}<br>
+				{{ plot.period('kmhm', 'WS.Windstaerke.kmH', 'max', '1m', 0,0,'' , '', 'Windstärke km/h', '', '', '', '1d'  ) }}<br>
+				{{ plot.period('Regen', 'WS.Regen', 'max', '1m','' ,'' ,'' , '', 'Regen', '', 'stair', '', '1h'  ) }}<br>
+				{{ plot.period('Moonphase', 'WS.Mondphase', 'max', '1m','' ,'' ,'' , '', 'Mondphase', '', 'stair', '', '6h'  ) }}
+			</div>
+		</div>
+	</div>
+
+	<div class="block" style="width:100%">
+		<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+			<div data-role="collapsible" data-collapsed="false" >
+			<h3>Hauptplatz Retz</h3>
+				<div class="image">
+					<img class="ui-corner-botKind 2" src="http://193.83.151.242:8088/cgi-bin/viewer/video.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+

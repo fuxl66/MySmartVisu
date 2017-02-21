@@ -1,0 +1,266 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+{% import "icon.html" as icon %}
+
+<div class="block">
+<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false" ><h2>Steuerung</h2>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('ZS.Raffstore.Gesamt.move.up', 'ZS.Raffstore.Gesamt.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('ZS.Raffstore.Gesamt.stop', 'ZS.Raffstore.Gesamt.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('ZS.Raffstore.Gesamt.move.down', 'ZS.Raffstore.Gesamt.move', 'Ab', 'arrow-d', 1, 'midi')}}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupZentralpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupZentralpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos10', 'ZS.Raffstore.Gesamt.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos20', 'ZS.Raffstore.Gesamt.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos30', 'ZS.Raffstore.Gesamt.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos40', 'ZS.Raffstore.Gesamt.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos50', 'ZS.Raffstore.Gesamt.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos60', 'ZS.Raffstore.Gesamt.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos70', 'ZS.Raffstore.Gesamt.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos80', 'ZS.Raffstore.Gesamt.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos90', 'ZS.Raffstore.Gesamt.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSpos100', 'ZS.Raffstore.Gesamt.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<a href="#popupZentralangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupZentralangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle10', 'ZS.Raffstore.Gesamt.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle20', 'ZS.Raffstore.Gesamt.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle30', 'ZS.Raffstore.Gesamt.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle40', 'ZS.Raffstore.Gesamt.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle50', 'ZS.Raffstore.Gesamt.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle60', 'ZS.Raffstore.Gesamt.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle70', 'ZS.Raffstore.Gesamt.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle80', 'ZS.Raffstore.Gesamt.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle90', 'ZS.Raffstore.Gesamt.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('ZSangle100', 'ZS.Raffstore.Gesamt.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+						<td align=center valign=middle colspan="2">
+						<a href="#popupSperre" data-rel="popup">
+							<img class="icon" src="{{ icon0~'secur_locked.svg' }}">
+						</a>
+						<div id="popupSperre" data-role="popup" style="width:280px; height:400px;">
+						<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+							<table align=center>
+								<tr>
+									<td align=right><h4>ALLE</h4></td>
+									<td align=left>{{ basic.dual('ZS.Raffstore.Gesamt.sperre', 'ZS.Raffstore.Gesamt.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('ZS.Raffstore.Sueden.sperre', 'ZS.Raffstore.Sueden.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=left><h4>Süden</h4></td>
+								</tr>  
+								<tr>
+									<td align=right><h4>EG</h4></td>
+									<td align=left>{{ basic.dual('ZS.Raffstore.OG.sperre', 'ZS.Raffstore.OG.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('ZS.Raffstore.EG.sperre', 'ZS.Raffstore.EG.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=left><h4>OG</h4></td>
+								</tr>  
+								<tr>
+									<td align=right><h4>WZ Fenster</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.WZFenster.sperre', 'EG.Raffstore.WZFenster.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right></td>
+									<td align=left><h4></h4></td>
+								</tr>  
+								<tr>
+									<td align=right><h4>WZ Türe</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.WZTuere.sperre', 'EG.Raffstore.WZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('OG.Raffstore.VR.sperre', 'OG.Raffstore.VR.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>					
+									<td align=left><h4>Vorraum</h4></td>
+								</tr>
+								<tr>
+									<td align=right><h4>EZ Türe</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.EZTuere.sperre', 'EG.Raffstore.EZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('OG.Raffstore.SZ.sperre', 'OG.Raffstore.SZ.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>					
+									<td align=left><h4>Schlafzimmer</h4></td>
+								</tr>
+								<tr>
+									<td align=right><h4>EZ Gross</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.EZFensterGross.sperre', 'EG.Raffstore.EZFensterGross.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('OG.Raffstore.KiZiJona.sperre', 'OG.Raffstore.KiZiJona.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>					
+									<td align=left><h4>Jona</h4></td>
+								</tr>
+								<tr>
+									<td align=right><h4>EZ Klein</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.EZFensterKlein.sperre', 'EG.Raffstore.EZFensterKlein.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('OG.Raffstore.KiZiWest.sperre', 'OG.Raffstore.KiZiWest.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>					
+									<td align=left><h4>Gästezimmer</h4></td>
+								</tr>
+								<tr>
+									<td align=right><h4>Küche</h4></td>
+									<td align=left>{{ basic.dual('EG.Raffstore.KuecheTuere.sperre', 'EG.Raffstore.KuecheTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=right>{{ basic.dual('OG.Raffstore.Bad.sperre', 'OG.Raffstore.Bad.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+									<td align=left><h4>Bad</h4></td>
+								</tr>
+							</table>
+						</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.symbol('RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'ZS.Raffstore.Gesamt.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'ZS.Raffstore.Gesamt.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+			</table>
+	</div>
+	<div data-role="collapsible">
+		<h2>Status Position/Winkel</h2>
+		<table align=center>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Küche</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('KuecheTuerePosWert', 'EG.Raffstore.KuecheTuere.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('KuecheTuereAngleWert', 'EG.Raffstore.KuecheTuere.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Esszimmer Türe</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZTuerePosWert', 'EG.Raffstore.EZTuere.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZTuereAngleWert', 'EG.Raffstore.EZTuere.angle', '%') }}</td>
+			</tr> 
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Esszimmer Grosses Fenster</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZGuerePosWert', 'EG.Raffstore.EZFensterGross.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZGuereAngleWert', 'EG.Raffstore.EZFensterGross.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Esszimmer Kleines Fenster</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZKuerePosWert', 'EG.Raffstore.EZFensterKlein.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('EZKuereAngleWert', 'EG.Raffstore.EZFensterKlein.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Wohnzimmer Schiebetür</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('WZTuerePosWert', 'EG.Raffstore.WZTuere.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('WZTuereAngleWert', 'EG.Raffstore.WZTuere.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Wohnzimmer Fenster</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('WZFensterPosWert', 'EG.Raffstore.WZFenster.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('WZFensterAngleWert', 'EG.Raffstore.WZFenster.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Bad</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('BadPosWert', 'OG.Raffstore.Bad.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('BadAngleWert', 'OG.Raffstore.Bad.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Schlafzimmer / Schrankraum</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('SZPosWert', 'OG.Raffstore.SZ.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('SZAngleWert', 'OG.Raffstore.SZ.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>KiZi Jona</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('KiZiJonaPosWert', 'OG.Raffstore.KiZiJona.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('KiZiJonaAngleWert', 'OG.Raffstore.KiZiJona.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Gästezimmer</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('KiZiWestPosWert', 'OG.Raffstore.KiZiWest.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('KiZiWestAngleWert', 'OG.Raffstore.KiZiWest.angle', '%') }}</td>
+			</tr>
+			<tr>
+				<td width=250 valign=middle align=right colspan="2"><h3>Vorraum</h3></td>
+				<td width=75 valign=middle align=center>{{ basic.float('VRPosWert', 'OG.Raffstore.VR.position', '%') }}</td>
+				<td width=75 valign=middle align=center>{{ basic.float('VRAngleWert', 'OG.Raffstore.VR.angle', '%') }}</td>
+			</tr>
+		</table>
+	</div>	
+</div>
+</div>
+{% endblock %}

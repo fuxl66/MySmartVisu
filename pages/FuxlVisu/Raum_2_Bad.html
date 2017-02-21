@@ -1,0 +1,228 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_bath.svg'/>Bad Obergeschoss</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadDecke', 'OG.Licht.BadDecke', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wandleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadWand', 'OG.Licht.BadWand', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>LED Box</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadBox', 'OG.Licht.BadBox', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spiegelleuchte</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('OG.Licht.BadSpiegel', 'OG.Licht.BadSpiegel', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('OG.Raffstore.Bad.move.up', 'OG.Raffstore.Bad.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('OG.Raffstore.Bad.stop', 'OG.Raffstore.Bad.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('OG.Raffstore.Bad.move.down', 'OG.Raffstore.Bad.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupBadpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupBadpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'OG.Raffstore.Bad.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'OG.Raffstore.Bad.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'OG.Raffstore.Bad.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'OG.Raffstore.Bad.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'OG.Raffstore.Bad.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'OG.Raffstore.Bad.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'OG.Raffstore.Bad.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'OG.Raffstore.Bad.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'OG.Raffstore.Bad.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'OG.Raffstore.Bad.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('BadPosWert', 'OG.Raffstore.Bad.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupBadangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupBadangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'OG.Raffstore.Bad.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'OG.Raffstore.Bad.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'OG.Raffstore.Bad.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'OG.Raffstore.Bad.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'OG.Raffstore.Bad.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'OG.Raffstore.Bad.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'OG.Raffstore.Bad.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'OG.Raffstore.Bad.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'OG.Raffstore.Bad.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'OG.Raffstore.Bad.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('BadAngleWert', 'OG.Raffstore.Bad.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'OG.Raffstore.Bad.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'OG.Raffstore.Bad.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('OG.Raffstore.Bad.sperre', 'OG.Raffstore.Bad.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('OG.Raffstore.Bad.Autosperre', 'OG.Raffstore.Bad.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('1OG.Raffstore.Bad', '', 'OG.Raffstore.Bad.move', 'OG.Raffstore.Bad.stop', 'OG.Raffstore.Bad.position', 'OG.Raffstore.Bad.stop', 'OG.Raffstore.Bad.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('1angle0', 'OG.Raffstore.Bad.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle50', 'OG.Raffstore.Bad.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle100', 'OG.Raffstore.Bad.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('1OG.Raffstore.Bad.angle', 'OG.Raffstore.Bad.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.Bad.sperre', 'OG.Raffstore.Bad.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1OG.Raffstore.Bad.Autosperre', 'OG.Raffstore.Bad.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+<div id="menu" class="menu">
+	<a id="menu-rooms" data-ajax="false" href="index.php">
+		<img class="icon {{ page starts with 'index' ? 'icon1' }}" src="{{ icon0 }}status_available.svg"/></a>
+	<a id="menu-system" data-ajax="false" href="index.php?page=config">
+		<img class="icon {{ page starts with 'config' ? 'icon1' }}" src="{{ icon0 }}edit_settings.svg"/></a>
+	<a href="#popup5" data-rel="popup">
+		<img class="icon {{ page starts with 'config' ? 'icon1' }}" src="{{ icon0 }}audio_playlist.svg"/></a>
+				<div id="popup5" data-role="popup" style="width:250px; height:250px;">
+				<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					<table align=center>
+						<tr>
+							<td align=right><h3>Alles Aus</h3></td>
+							<td align=left>{{ basic.button('AllesAus', 'Szenen.LichtRaff', '', 'star', 11, 'mini') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h3>Szene TV</h3></td>
+							<td align=left>{{ basic.button('TV', 'Szenen.LichtRaff', '', 'grid', 13, 'mini') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h3>Alle Raffs Sperren</h3></td>
+							<td align=left>{{ basic.dual('ZS.Raffstore.Gesamt.sperre11', 'ZS.Raffstore.Gesamt.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h3>KWL Party Modus</h3></td>
+							<td align=left>{{ basic.dual('111LWZ.KWLParty', 'LWZ.KWLParty', icon0~'vent_ventilation.svg', icon0~'vent_ventilation.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</td>
+						</tr>
+						<tr>
+							<td align=right><h3>Alle Raffs Auf</h3></td>
+							<td align=left>{{ basic.button('11ZS.Raffstore.Gesamt.move.up', 'ZS.Raffstore.Gesamt.move', 'Auf', 'arrow-u', 0, 'mini') }}</td>
+						</tr>
+					</table>
+				</div>
+</div>

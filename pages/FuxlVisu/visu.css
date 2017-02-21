@@ -1,0 +1,317 @@
+﻿/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * ----------------------------------------------------------------------------- 
+ */
+ 
+ 
+@CHARSET "UTF-8";
+
+/* Large desktop */
+@media all and (min-width: 780px) {
+	.minimum-tablet, .minimum-desktop, .visible-desktop {
+		display: block;
+	}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 968px) and (max-width: 1079px) {
+	.minimum-tablet, .visible-tablet {
+		display: block;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media all and (max-width: 967px) {
+	.visible-phone {
+		display: block;
+	}
+}
+
+/* display background only on larger displays */
+@media all and (min-width: 900px) {
+    .page-bg {
+	    background-image: url('../../pics/bg/light_waveforms.png');
+    }
+}
+
+h1 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: normal;
+	font-size: 12px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+
+h2 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: normal;
+	font-size: 8px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+
+h3 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: normal;
+	font-size: 12px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+
+h4 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: normal;
+	font-size: 10px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+h5 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: bold;
+	font-size: 10px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+h6 {
+	font-style: normal;
+    font-variant: small-caps;
+	font-weight: normal;
+	font-size: 8px;
+	font-family: sans-serif, Tahoma, Comic Sans MS;
+	}
+
+/* ORIGINAL*/
+.tiles li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 60px;
+	width: 100%;
+	padding: 0px 5px 0 0;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+}
+
+.ui-li-aside {
+	margin: 0;
+	font-size: 14px;
+	text-align: right;
+}
+
+.ui-li-aside .icon {
+	width: 32px;
+	height: 32px;
+}
+
+.ui-li-aside .symbol .icon, .ui-li-aside .symbol .fx-icon {
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+}
+/*
+.ui-li-divider > img {
+	height: 28px;
+	vertical-align: middle;
+	margin: -7px 5px -7px 5px;
+	position: relative;
+	top: -2px;
+}
+*/
+/* Head */
+.tilesHead li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 8px;
+	width: 100%;
+	padding: 0px 0px 0px 15px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+	text-align: left;
+}
+
+/* BIG */
+.tilesBig li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 50px;
+	width: 100%;
+	padding: 0px 5px 5px 5px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.ui-li-asideBig {
+	margin: 0;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ui-li-asideBig .icon {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+}
+
+.ui-li-asideBig .symbol .icon, .ui-li-asideBig .symbol .fx-icon {
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+}
+
+/* SMALL */
+.tilesSmall li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 125px;
+	width: 50%;
+	padding: 0px 5px 5px 5px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: right;
+}
+
+.ui-li-asideSmall {
+	margin: 0;
+	font-size: 14px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: right;
+}
+
+.ui-li-asideSmall .icon {
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.ui-li-asideSmall .symbol .icon, .ui-li-asideSmall .symbol .fx-icon {
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+}
+
+/* Small3 */
+.tilesSmall3 li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 155px;
+	width: 50%;
+	padding: 0px 5px 5px 5px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.ui-li-asideSmall3 {
+	margin: 0;
+	font-size: 14px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.ui-li-asideSmall3 .icon {
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.ui-li-asideSmall3 .symbol .icon, .ui-li-asideSmall3 .symbol .fx-icon {
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+}
+
+/*ICONS*/
+.icon {
+	width: 48px;
+	height: 48px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+/* Drei Raff */
+.tilesDrei li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 120px;
+	width: 100%;
+	padding: 0px 5px 0px 0px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+/* Zwei Raff */
+.tilesZwei li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 85px;
+	width: 100%;
+	padding: 0px 5px 0px 0px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+/* Ein Raff */
+.tilesEin li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 0;
+	border-right: 0;
+	display: block;
+	float: left;
+	height: 70px;
+	width: 100%;
+	padding: 0px 5px 0px 0px;
+	margin: 0px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: middle;
+}

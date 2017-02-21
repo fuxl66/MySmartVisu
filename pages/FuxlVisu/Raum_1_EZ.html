@@ -1,0 +1,567 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_dinner.svg'/>Esszimmer</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Deckenspots</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZRandzone', 'EG.Licht.EZRandzone', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Tischbeleuchtung</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZEsstisch', 'EG.Licht.EZEsstisch', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Gehweg</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('EG.Licht.EZGang', 'EG.Licht.EZGang', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+				<td align=center valign=middle></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Türe Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZTuere.move.up', 'EG.Raffstore.EZTuere.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('EG.Raffstore.EZTuere.stop', 'EG.Raffstore.EZTuere.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZTuere.move.down', 'EG.Raffstore.EZTuere.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupEZTuerepos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupEZTuerepos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'EG.Raffstore.EZTuere.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'EG.Raffstore.EZTuere.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'EG.Raffstore.EZTuere.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'EG.Raffstore.EZTuere.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'EG.Raffstore.EZTuere.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'EG.Raffstore.EZTuere.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'EG.Raffstore.EZTuere.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'EG.Raffstore.EZTuere.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'EG.Raffstore.EZTuere.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'EG.Raffstore.EZTuere.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZTuerePosWert', 'EG.Raffstore.EZTuere.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupEZTuereangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupEZTuereangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'EG.Raffstore.EZTuere.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'EG.Raffstore.EZTuere.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'EG.Raffstore.EZTuere.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'EG.Raffstore.EZTuere.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'EG.Raffstore.EZTuere.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'EG.Raffstore.EZTuere.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'EG.Raffstore.EZTuere.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'EG.Raffstore.EZTuere.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'EG.Raffstore.EZTuere.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'EG.Raffstore.EZTuere.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZTuereAngleWert', 'EG.Raffstore.EZTuere.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'EG.Raffstore.EZTuere.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'EG.Raffstore.EZTuere.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZTuere.sperre', 'EG.Raffstore.EZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('1RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZTuere.Autosperre', 'EG.Raffstore.EZTuere.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('3EG.Raffstore.EZTuere', '', 'EG.Raffstore.EZTuere.move', 'EG.Raffstore.EZTuere.stop', 'EG.Raffstore.EZTuere.position', 'EG.Raffstore.EZTuere.stop', 'EG.Raffstore.EZTuere.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('3angle0', 'EG.Raffstore.EZTuere.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('3angle50', 'EG.Raffstore.EZTuere.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('3angle100', 'EG.Raffstore.EZTuere.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('3EG.Raffstore.EZTuere.angle', 'EG.Raffstore.EZTuere.angle', 0, 100, 10, 'vertical') }}</div>
+						</td> 
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('3EG.Raffstore.EZTuere.sperre', 'EG.Raffstore.EZTuere.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('3EG.Raffstore.EZTuere.Autosperre', 'EG.Raffstore.EZTuere.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Fenster Gross Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterGross.move.up', 'EG.Raffstore.EZFensterGross.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterGross.stop', 'EG.Raffstore.EZFensterGross.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterGross.move.down', 'EG.Raffstore.EZFensterGross.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupEZFGpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupEZFGpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'EG.Raffstore.EZFensterGross.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'EG.Raffstore.EZFensterGross.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'EG.Raffstore.EZFensterGross.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'EG.Raffstore.EZFensterGross.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'EG.Raffstore.EZFensterGross.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'EG.Raffstore.EZFensterGross.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'EG.Raffstore.EZFensterGross.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'EG.Raffstore.EZFensterGross.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'EG.Raffstore.EZFensterGross.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'EG.Raffstore.EZFensterGross.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZFensterGrossPosWert', 'EG.Raffstore.EZFensterGross.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupEZFGangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupEZFGangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'EG.Raffstore.EZFensterGross.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'EG.Raffstore.EZFensterGross.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'EG.Raffstore.EZFensterGross.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'EG.Raffstore.EZFensterGross.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'EG.Raffstore.EZFensterGross.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'EG.Raffstore.EZFensterGross.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'EG.Raffstore.EZFensterGross.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'EG.Raffstore.EZFensterGross.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'EG.Raffstore.EZFensterGross.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'EG.Raffstore.EZFensterGross.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZFensterGrossAngleWert', 'EG.Raffstore.EZFensterGross.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'EG.Raffstore.EZFensterGross.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'EG.Raffstore.EZFensterGross.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZFensterGross.sperre', 'EG.Raffstore.EZFensterGross.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('2RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZFensterGross.Autosperre', 'EG.Raffstore.EZFensterGross.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('2EG.Raffstore.EZFensterGross', '', 'EG.Raffstore.EZFensterGross.move', 'EG.Raffstore.EZFensterGross.stop', 'EG.Raffstore.EZFensterGross.position', 'EG.Raffstore.EZFensterGross.stop', 'EG.Raffstore.EZFensterGross.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('2angle0', 'EG.Raffstore.EZFensterGross.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('2angle50', 'EG.Raffstore.EZFensterGross.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('2angle100', 'EG.Raffstore.EZFensterGross.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('2EG.Raffstore.EZFensterGross.angle', 'EG.Raffstore.EZFensterGross.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('2EG.Raffstore.EZFensterGross.sperre', 'EG.Raffstore.EZFensterGross.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('2EG.Raffstore.EZFensterGross.Autosperre', 'EG.Raffstore.EZFensterGross.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Raffstore Fenster Klein Buttons</h3>
+			<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterKlein.move.up', 'EG.Raffstore.EZFensterKlein.move', 'Auf', 'arrow-u', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterKlein.stop', 'EG.Raffstore.EZFensterKlein.stop', 'Stop', 'delete', 1, 'midi')}}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('EG.Raffstore.EZFensterKlein.move.down', 'EG.Raffstore.EZFensterKlein.move', 'Ab', 'arrow-d', 1, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#popupEZFKpos" data-rel="popup"><img class="icon" src="{{ icon0~'fts_shutter_50.svg' }}"></a>
+							<div id="popupEZFKpos" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos10', 'EG.Raffstore.EZFensterKlein.position', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos20', 'EG.Raffstore.EZFensterKlein.position', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos30', 'EG.Raffstore.EZFensterKlein.position', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos40', 'EG.Raffstore.EZFensterKlein.position', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos50', 'EG.Raffstore.EZFensterKlein.position', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos60', 'EG.Raffstore.EZFensterKlein.position', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos70', 'EG.Raffstore.EZFensterKlein.position', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos80', 'EG.Raffstore.EZFensterKlein.position', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos90', 'EG.Raffstore.EZFensterKlein.position', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('pos100', 'EG.Raffstore.EZFensterKlein.position', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZFensterKleinPosWert', 'EG.Raffstore.EZFensterKlein.position', '%') }}</div>
+						</td>
+						<td>
+							<a href="#popupEZFKangle" data-rel="popup"><img class="icon" src="{{ icon0~'fts_blade_z.svg' }}"></a>
+							<div id="popupEZFKangle" data-role="popup" style="width:150px; height:250px;">
+								<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+									<table align=center>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle10', 'EG.Raffstore.EZFensterKlein.angle', '0%', '', 0, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle20', 'EG.Raffstore.EZFensterKlein.angle', '20%', '', 20, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle30', 'EG.Raffstore.EZFensterKlein.angle', '30%', '', 30, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle40', 'EG.Raffstore.EZFensterKlein.angle', '40%', '', 40, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle50', 'EG.Raffstore.EZFensterKlein.angle', '50%', '', 50, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle60', 'EG.Raffstore.EZFensterKlein.angle', '60%', '', 60, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle70', 'EG.Raffstore.EZFensterKlein.angle', '70%', '', 70, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle80', 'EG.Raffstore.EZFensterKlein.angle', '80%', '', 80, 'mini') }}</div>
+											</td>
+										</tr>
+										<tr>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle90', 'EG.Raffstore.EZFensterKlein.angle', '90%', '', 90, 'mini') }}</div>
+											</td>
+											<td align=center valign=middle>
+												<div class="set">{{ basic.button('angle100', 'EG.Raffstore.EZFensterKlein.angle', '100%', '', 100, 'mini') }}</div>
+											</td>
+										</tr>
+									</table>
+							</div>
+						</td>
+						<td>
+							<div class="set">{{ basic.float('EZFensterKleinAngleWert', 'EG.Raffstore.EZFensterKlein.angle', '%') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('open', 'EG.Raffstore.EZFensterKlein.angle', 'open', '', 0, 'midi') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+							
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('close', 'EG.Raffstore.EZFensterKlein.angle', 'close', '', 100, 'midi') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZFensterKlein.sperre', 'EG.Raffstore.EZFensterKlein.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle colspan="2">
+						<div class="set">{{ basic.symbol('3RaffButton', 'ZS.Raffstore.Button', '', icon0~'control_arrow_up_down.svg', 1, '', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('EG.Raffstore.EZFensterKlein.Autosperre', 'EG.Raffstore.EZFensterKlein.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+			</table>
+		</div>
+	<div data-role="collapsible">
+		<h3>Widget</h3>
+			 	<table align=center valign=middle>
+					<tr>
+						<td align=center valign=middle>
+							<div class="set">{{ device.shutter('1EG.Raffstore.EZFensterKlein', '', 'EG.Raffstore.EZFensterKlein.move', 'EG.Raffstore.EZFensterKlein.stop', 'EG.Raffstore.EZFensterKlein.position', 'EG.Raffstore.EZFensterKlein.stop', 'EG.Raffstore.EZFensterKlein.angle', '', 0, 100) }}</div>
+						</td>
+						<td align=center valign=middle>
+							<div class="set">{{ basic.button('1angle0', 'EG.Raffstore.EZFensterKlein.angle', 'open', '', 0, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle50', 'EG.Raffstore.EZFensterKlein.angle', '50%', '', 50, 'mini') }}</div><br>
+							<div class="set">{{ basic.button('1angle100', 'EG.Raffstore.EZFensterKlein.angle', 'close', '', 100, 'mini') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.slider('1EG.Raffstore.EZFensterKlein.angle', 'EG.Raffstore.EZFensterKlein.angle', 0, 100, 10, 'vertical') }}</div>
+						</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1EG.Raffstore.EZFensterKlein.sperre', 'EG.Raffstore.EZFensterKlein.sperre', icon0~'secur_open.svg', icon0~'secur_locked.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+						<td align=center valign=middle>
+						<div class="set">{{ basic.dual('1EG.Raffstore.EZFensterKlein.Autosperre', 'EG.Raffstore.EZFensterKlein.Autosperre', icon0~'time_manual_mode.svg', icon0~'time_manual_mode.svg', '0', '1', 'midi', 'icon0', 'icon1') }}</div>
+						</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,289 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+{% import "widget_uzsu.html" as uzsu %}
+
+<h1><img class="icon" src='{{ icon0 }}sani_heating.svg'/>Heizung</h1>
+
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false">
+	<h3>Status</h3>
+	 <table align=center valign=middle>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Betriebsmodus</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{basic.value('LWZ.pOpMode','LWZ.pOpMode' )}}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Außentemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.outsideTemp', 'LWZ.outsideTemp', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Raumtemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.roomTempRC', 'LWZ.roomTempRC', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Luftfeuchte</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.relHumidity', 'LWZ.relHumidity', '%') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Verdichter</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.compressorOn', 'LWZ.compressorOn', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizkreispumpe</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.heatingCircuitPumpOn', 'LWZ.heatingCircuitPumpOn', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasserbereitung</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.dhwPumpOn', 'LWZ.dhwPumpOn', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizstab Stufe 1</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.boosterStage1On', 'LWZ.boosterStage1On', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizstab Stufe 2</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.boosterStage2On', 'LWZ.boosterStage2On', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizstab Stufe 3</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.text('LWZ.boosterStage3On', 'LWZ.boosterStage3On', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div data-role="collapsible">
+	<h3>Heizen</h3>
+	 <table align=center valign=middle>
+		<tr>
+			<td width=150 align=right valign=middle><h3>HK1 Solltemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.heatSetTempHC1', 'LWZ.heatSetTempHC1', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>HK1 Isttemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.heatTempHC1', 'LWZ.heatTempHC1', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Vorlauftemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.flowTemp', 'LWZ.flowTemp', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Rücklauftemperatur</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.returnTemp', 'LWZ.returnTemp', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizen<br />Tag<br />Verdichter</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.ePowerHCDay', 'LWZ.ePowerHCDay', 'kwh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizen<br />Total<br />Verdichter</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.ePowerHCTotal', 'LWZ.ePowerHCTotal', 'kwhh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizen<br />Total<br />Heizstab</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.boostHCTotal', 'LWZ.boostHCTotal', 'kwhh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizen<br />Betriebsstunden<br />Verdichter</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.compressorHeatingCycles', 'LWZ.compressorHeatingCycles', 'h') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Heizen<br />Betriebsstunden<br />Heizstab</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.boosterHeatingCycles', 'LWZ.boosterHeatingCycles', 'h') }}</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div data-role="collapsible">
+		<h3>Warmwasser</h3>
+	 <table align=center valign=middle>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwassertemperatur IST</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.dhwTemp', 'LWZ.dhwTemp', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwassertemperatur SOLL</h3></td>
+			<td width=125 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.dhwSetTemp', 'LWZ.dhwSetTemp', '°') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwassertemperatur TAG</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.p04DHWsetDayTemp', 'LWZ.p04DHWsetDayTemp', '°') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('WWPush', 'LWZ.p04DHWsetDayTemp', 'Push WW', '', 47, 'micro') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwassertemperatur NACHT</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.p05DHWsetNightTemp', 'LWZ.p05DHWsetNightTemp', '°') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('WWPush1', 'LWZ.p05DHWsetNightTemp', 'Push WW', '', 47, 'micro') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasser<br />Tag<br />Verdichter</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.ePowerDHWDay', 'LWZ.ePowerDHWDay', 'kwh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasser<br />Total<br />Verdichter</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.ePowerDHWTotal', 'LWZ.ePowerDHWTotal', 'kwhh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasser<br />Total<br />Heizstab</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.boostDHWTotal', 'LWZ.boostDHWTotal', 'kwh') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasser<br />Betriebsstunden<br />Verdichter</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.compressorDHWCycles', 'LWZ.compressorDHWCycles', 'h') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Warmwasser<br />Betriebsstunden<br />Heizstab</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.boosterDHWCycles', 'LWZ.boosterDHWCycles', 'h') }}</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div data-role="collapsible">
+	<h3>KWL</h3>
+	 <table align=center valign=middle>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Lüfterstufe TAG</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.p07FanStageDay', 'LWZ.p07FanStageDay', '') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL00', 'LWZ.p07FanStageDay', '0', '', 0, 'micro') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL11', 'LWZ.p07FanStageDay', '1', '', 1, 'micro') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL22', 'LWZ.p07FanStageDay', '2', '', 2, 'micro') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Lüfterstufe NACHT</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.float('LWZ.p08FanStageNight', 'LWZ.p08FanStageNight', '') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL0', 'LWZ.p08FanStageNight', '0', '', 0, 'micro') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL1', 'LWZ.p08FanStageNight', '1', '', 1, 'micro') }}</div>
+			</td>
+			<td width=50 align=center valign=middle>
+				<div class="set">{{ basic.button('KWL2', 'LWZ.p08FanStageNight', '2', '', 2, 'micro') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Party Modus</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.text('555Status.KWLPartyMittag', 'Status.KWLPartyMittag', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Party Modus START</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.dual('11LWZ.KWLParty', 'LWZ.KWLParty', icon0~'vent_ventilation.svg', icon1~'vent_ventilation.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>Party Modus Timer</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ uzsu.uzsu_icon('0LWZ.KWLParty.UZSU', 'LWZ.KWLParty.UZSU', 'Partymodus') }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>KWL Stage 0</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.text('0WS.KWL0', 'WS.KWL0', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>KWL Stage 1</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.text('1WS.KWL1', 'WS.KWL1', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+		<tr>
+			<td width=150 align=right valign=middle><h3>KWL Stage 2</h3></td>
+			<td width=75 align=center valign=middle>
+				<div class="set">{{ basic.text('2WS.KWL2', 'WS.KWL2', 'EIN', 'AUS', 1, 0) }}</div>
+			</td>
+		</tr>
+	</table>
+	</div>
+	</div>
+</div>
+<div class="block full-width">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">WarmWasser</div>
+		<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+			{{ plot.period('LWZ.dhwTempddafadf', 'LWZ.dhwTemp', 'max', '1w', 0,0,'' , '', 'WW Temp') }}
+		</div>
+</div>
+{% endblock %}
+

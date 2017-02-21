@@ -1,0 +1,94 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}sani_solar.svg' />Photovoltaikanlage</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+	<div data-role="collapsible" data-collapsed="false">
+	<h3>PV Status</h3>
+<table width=100%>
+	<tr>
+		<td align=left style="padding-left: 10px;">
+			Aktuelle Leistung:
+		</td>
+		<td align=right>
+			{{ basic.float('pakt', 'solar.current', 'W') }}
+		</td>
+	</tr>
+</table>
+  
+  <table width=100%>
+			
+		<tr>
+			<td align=left style="padding-left: 10px;">
+			Status:	
+			</td>
+			<td align=right>
+			{{basic.value('value1','solar.status' )}}
+			</td>
+		</tr>
+	</table>
+   
+	<table width=100%>
+		<tr>
+			<td align=left style="padding-left: 10px;">
+			Gesamtenergie
+			</td>
+			<td align=right>
+				{{ basic.float('pges', 'solar.total', 'kwh') }}
+			</td>
+		</tr>
+	</table>
+	<table width=100%>
+		<tr>
+			<td align=left style="padding-left: 10px;">
+					Tagesenergie:
+			</td>
+			<td align=right>
+				{{ basic.float('tges', 'solar.day', 'kwh') }}
+			</td>
+		</tr>
+	</table> 
+	</div>
+</div>
+</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+			<h3>Täglich</h3>
+				Leistung {{ plot.period('current', 'solar.current', 'avg', '1d', 0,0,'' , '', '', '', '', '', '1h'  ) }}
+			</div>
+		</div>
+	</div>
+<br clear="all">
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="true" >
+				<h3>Wöchentlich</h3>
+				   Leistung {{ plot.period('day', 'solar.day', 'avg', '1w', 0,0,'' , '', '', '', '', '', '1d'  ) }}
+			</div>
+		</div>
+	</div> 
+<br clear="all">
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="true" >
+				<h3>Monatlich</h3>
+				   Leistung {{ plot.period('month', 'solar.day', 'avg', '1m', 0,0,'' , '', '', '', '', '', '1d'  ) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

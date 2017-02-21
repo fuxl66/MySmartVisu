@@ -1,0 +1,247 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Stephan Schaade
+* @copyright   2013
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "rooms.html" %}
+{% block content %}
+{% import "widget_avm.html" as avm %}
+
+<h1><img class="icon" src="{{ icon0 }}it_network.svg"/>Network</h1>
+
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Devices</div>
+		<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+			<table width="100%" align=center valign=middle>
+				<tr>
+					<td width="25%" align=right valign=middle><h3>Device</h3></td>
+					<td width="20%" align=middle valign=middle><h3>Active</h3></td>
+					<td width="20%" align=middle valign=middle><h3>Location</h3></td>
+					<td width="35%" align=middle valign=middle><h3>Last change</h3></td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Carina<br />Smartphone</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('CarinaSmartEGOGOR', ['AVM.devices.repeater_eg.CarinaSmart', 'AVM.devices.repeater_og.CarinaSmart'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('CarinaSmartEGOGAND', ['AVM.devices.repeater_eg.CarinaSmart', 'AVM.devices.repeater_og.CarinaSmart'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.CarinaSmart', 'AVM.devices.repeater_og.CarinaSmart', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.CarinaSmart', 'AVM.devices.repeater_eg.CarinaSmart', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.CarinaSmart.zuletzt', 'AVM.devices.router_7360.CarinaSmart.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Fuxl<br />Smartphone</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('FuxlSmartEGOGOR', ['AVM.devices.repeater_eg.FuxlSmart', 'AVM.devices.repeater_og.FuxlSmart'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('FuxlSmartEGOGAND', ['AVM.devices.repeater_eg.FuxlSmart', 'AVM.devices.repeater_og.FuxlSmart'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.FuxlSmart', 'AVM.devices.repeater_og.FuxlSmart', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.FuxlSmart', 'AVM.devices.repeater_eg.FuxlSmart', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.FuxlSmart.zuletzt', 'AVM.devices.router_7360.FuxlSmart.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Oma Heidi<br />Smartphone</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('OmaHeidiEGOGOR', ['AVM.devices.repeater_eg.OmaHeidi', 'AVM.devices.repeater_og.OmaHeidi'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('OmaHeidiEGOGAND', ['AVM.devices.repeater_eg.OmaHeidi', 'AVM.devices.repeater_og.OmaHeidi'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.OmaHeidi', 'AVM.devices.repeater_og.OmaHeidi', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.OmaHeidi', 'AVM.devices.repeater_eg.OmaHeidi', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.OmaHeidi.zuletzt', 'AVM.devices.router_7360.OmaHeidi.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Surface<br />Book</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('SurfacebookEGOGOR', ['AVM.devices.repeater_eg.Surfacebook', 'AVM.devices.repeater_og.Surfacebook'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('SurfacebookEGOGAND', ['AVM.devices.repeater_eg.Surfacebook', 'AVM.devices.repeater_og.Surfacebook'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.Surfacebook', 'AVM.devices.repeater_og.Surfacebook', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.Surfacebook', 'AVM.devices.repeater_eg.Surfacebook', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.Surfacebook.zuletzt', 'AVM.devices.router_7360.Surfacebook.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Server</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('Server1', 'AVM.devices.router_7360.Server', '', icon0~'it_network.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('Server0', 'AVM.devices.router_7360.Server', '', icon0~'control_x.svg', 0) }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.router_7360.Server', 'AVM.devices.router_7360.Server', 'LAN', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.Server.zuletzt', 'AVM.devices.router_7360.Server.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Dreambox</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('Dreambox1', 'AVM.devices.router_7360.Dreambox', '', icon0~'it_network.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('Dreambox0', 'AVM.devices.router_7360.Dreambox', '', icon0~'control_x.svg', 0) }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.router_7360.Dreambox', 'AVM.devices.router_7360.Dreambox', 'LAN', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.Dreambox.zuletzt', 'AVM.devices.router_7360.Dreambox.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Drucker</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('Drucker1', 'AVM.devices.router_7360.Drucker', '', icon0~'it_network.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('Drucker0', 'AVM.devices.router_7360.Drucker', '', icon0~'control_x.svg', 0) }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.router_7360.Drucker', 'AVM.devices.router_7360.Drucker', 'LAN', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.Drucker.zuletzt', 'AVM.devices.router_7360.Drucker.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Smart-TV</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('SmartTV1', 'AVM.devices.router_7360.SmartTV', '', icon0~'it_network.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('SmartTV0', 'AVM.devices.router_7360.SmartTV', '', icon0~'control_x.svg', 0) }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.router_7360.SmartTV', 'AVM.devices.router_7360.SmartTV', 'LAN', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.SmartTV.zuletzt', 'AVM.devices.router_7360.SmartTV.zuletzt', 'short') }}
+					</td>
+				</tr>
+			</table>
+		</div>
+</div>
+
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">Internet</div>
+		<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">
+			<table width="100%" align=center valign=middle>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>Internet connected</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.symbol('1connected', 'AVM.wan.is_connected', '', icon0~'it_internet.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('0connected', 'AVM.wan.is_connected', '', icon0~'it_internet.svg', 0) }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>Uptime</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.float('AVM.wan.uptime.Stunden', 'AVM.wan.uptime.Stunden', 'h') }} {{ basic.float('AVM.wan.uptime.Minuten', 'AVM.wan.uptime.Minuten', 'm') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>External IP</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.value('AVM.wan.ip', 'AVM.wan.ip') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>Upstream</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.float('AVM.wan.upstream.Mbits', 'AVM.wan.upstream.Mbits', 'mbits') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>Downstream</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.float('AVM.wan.downstream.Mbits', 'AVM.wan.downstream.Mbits', 'mbits') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>Myfritz connected</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.symbol('1Myfritz', 'AVM.Myfritz', '', icon0~'message_ok.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('0Myfritz', 'AVM.Myfritz', '', icon0~'control_x.svg', 0) }}
+					</td>
+				</tr>
+			</table>
+		</div>
+</div>
+
+<div class="block">
+	<div class="ui-bar-c ui-li-divider ui-corner-top">WLAN</div>
+		<div class="ui-fixed ui-body-a ui-corner-bottom" style="min-height: 50px">			
+			<table width="100%" align=center valign=middle>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>WLAN EG</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.symbol('1uf_wlan_1', 'AVM.wlanRepeaterEG.uf_wlan_1', '', icon0~'it_wifi.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('0uf_wlan_1', 'AVM.wlanRepeaterEG.uf_wlan_1', '', icon0~'it_wifi.svg', 0) }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>SSID EG</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.value('AVM.wlanRepeaterEG.uf_wlan_1_ssid', 'AVM.wlanRepeaterEG.uf_wlan_1_ssid') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>WLAN EG Guest</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.dual('AVM.wlanRepeaterEG.uf_wlan_2', 'AVM.wlanRepeaterEG.uf_wlan_2', icon0~'it_wifi.svg', icon0~'it_wifi.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>SSID EG Guest</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.value('AVM.wlanRepeaterEG.uf_wlan_2_ssid', 'AVM.wlanRepeaterEG.uf_wlan_2_ssid') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>--------------------</h3></td>
+					<td width="60%" align=middle valign=middle><h3>------------------------------</h3></td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>WLAN OG</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.symbol('1oguf_wlan_1', 'AVM.wlanRepeaterOG.uf_wlan_1', '', icon0~'it_wifi.svg', 1, '', 'icon1') }}
+						{{ basic.symbol('0oguf_wlan_1', 'AVM.wlanRepeaterOG.uf_wlan_1', '', icon0~'it_wifi.svg', 0) }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>SSID OG</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.value('AVM.wlanRepeaterOG.uf_wlan_1_ssid', 'AVM.wlanRepeaterOG.uf_wlan_1_ssid') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>WLAN OG Guest</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.dual('AVM.wlanRepeaterOG.uf_wlan_2', 'AVM.wlanRepeaterOG.uf_wlan_2', icon0~'it_wifi.svg', icon0~'it_wifi.svg', '0', '1', 'mini', 'icon0', 'icon1') }}
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" align=right valign=middle><h3>SSID OG Guest</h3></td>
+					<td width="60%" align=middle valign=middle>
+						{{ basic.value('AVM.wlanRepeaterOG.uf_wlan_2_ssid', 'AVM.wlanRepeaterOG.uf_wlan_2_ssid') }}
+					</td>
+				</tr>
+			</table>
+		</div>
+</div>
+
+{% endblock %}

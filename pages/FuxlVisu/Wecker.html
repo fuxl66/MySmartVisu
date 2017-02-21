@@ -1,0 +1,63 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+{% import "widget_uzsu.html" as uzsu %}
+<h1><img class="icon" src='{{ icon0 }}time_clock.svg'/>Alarm</h1>
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false">
+			<h3>Alarm</h3>
+				<table align=center>
+					<tr>
+						<td align=center>{{ basic.flip('1Wecker.Eins', 'Wecker.Eins', '5:00', '5:30') }}</td>
+						<td align=center>{{ uzsu.uzsu_icon('Wecker.Eins.OnOff.UZSU', 'Wecker.Eins.OnOff.UZSU', '05:30') }}</td>
+					</tr>
+					<tr>
+						<td align=center>{{ basic.flip('1Wecker.Zwei', 'Wecker.Zwei', '5:25', '5:52') }}</td>
+						<td align=center>{{ uzsu.uzsu_icon('Wecker.Zwei.OnOff.UZSU', 'Wecker.Zwei.OnOff.UZSU', '05:52') }}</td>
+					</tr>
+					<tr>
+						<td align=center>{{ basic.flip('1Wecker.Drei', 'Wecker.Drei', '5:50', '6:17') }}</td>
+						<td align=center>{{ uzsu.uzsu_icon('Wecker.Drei.OnOff.UZSU', 'Wecker.Drei.OnOff.UZSU', '06:17') }}</td>
+					</tr>
+					<tr>
+						<td align=center>{{ basic.flip('1Wecker.Vier', 'Wecker.Vier', 'x:xx', 'x:xx') }}</td>
+						<td align=center>{{ uzsu.uzsu_icon('Wecker.Vier.OnOff.UZSU', 'Wecker.Vier.OnOff.UZSU', 'xx:xx') }}</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+</div>
+<br clear="all">
+<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="true">
+			<h3>Settings</h3>
+				<table align=center>
+					<tr>
+						<td align=center valign=middle><h3>Quick Call</h3></td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>{{ basic.flip('Wecker.Call', 'Wecker.Call', 'Dialing', 'Call me') }}</td>
+					</tr>
+					<tr>
+						<td align=center valign=middle><h3>Wecker + Call</h3></td>
+					</tr>
+					<tr>
+						<td align=center valign=middle>{{ basic.flip('Wecker.CallMarkus', 'Wecker.CallMarkus', 'Ein', 'Aus') }}</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

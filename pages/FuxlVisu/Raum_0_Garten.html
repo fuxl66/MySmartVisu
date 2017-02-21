@@ -1,0 +1,83 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+	<h1><img class="icon" src='{{ icon0 }}scene_garden.svg'/>Garten</h1>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Deckenleuchte Terrasse</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('ABLichtTerrasse', 'AB.Licht.Terrasse', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>LED Wasserfall</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('ABLichtLEDWasserfall', 'AB.Licht.LEDWasserfall', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spots EZ Terrasse</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('SpotsEZTerrasse', 'AB.Licht.TerrasseEZSpots', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Spots WZ Terrasse</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('SpotsWZTerrasse', 'AB.Licht.TerrasseWZSpots', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Beleuchtung Steinmauer</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('Steinmauer', 'AB.Licht.Steinmauer', icon0~'light_light.svg', icon0~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="block">
+	<div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+		<div data-role="collapsible" data-collapsed="false" >
+		<h3>Steckdosen</h3>
+		 <table align=center valign=middle>
+			<tr>
+				<td align=center valign=middle><h3>Terrasse</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('AB.Schuko.Terrasse', 'AB.Schuko.Terrasse', icon0~'message_socket_ch.svg', icon0~'message_socket_ch.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+					<td align=center valign=middle><div class="set">{{ basic.dual('AB.Schuko.Terrasse.Sperre', 'AB.Schuko.Terrasse.Sperre', icon0~'time_automatic.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div></td>
+				</td>
+			</tr>
+			<tr>
+				<td align=center valign=middle><h3>Wasserfall</h3></td>
+				<td align=center valign=middle>
+					<div class="set">{{ basic.dual('AB.Schuko.Wasserfall', 'AB.Schuko.Wasserfall', icon0~'message_socket_ch.svg', icon0~'message_socket_ch.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+				</td>
+					<td align=center valign=middle><div class="set">{{ basic.dual('AB.Schuko.Wasserfall.Sperre', 'AB.Schuko.Wasserfall.Sperre', icon0~'time_automatic.svg', icon0~'secur_locked.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div></td>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</div>
+{% endblock %}
+

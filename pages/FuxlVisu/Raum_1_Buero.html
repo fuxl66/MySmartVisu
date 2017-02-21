@@ -1,0 +1,28 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block content %}
+
+<h1><img class="icon" src='{{ icon0 }}scene_office.svg'/>Büro</h1>
+
+<div class="block">
+    <div class="set-2" data-role="collapsible-set" data-theme="c" data-content-theme="a" data-mini="true">
+    	<div data-role="collapsible" data-collapsed="false" >
+		<h3>Beleuchtung</h3>
+            <h3>Deckenspots</h3>
+			<div class="set">{{ basic.dual('EG.Licht.Buero', 'EG.Licht.Buero', icon0~'light_light.svg', icon1~'light_light_dim_100.svg', '0', '1', 'mini', 'icon0', 'icon1') }}</div>
+		</div>				
+    </div>
+</div>
+
+{% endblock %}
+
