@@ -1,0 +1,162 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Martin Gleiß
+* @copyright   2012 - 2015
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+/**
+* Displays a image witch is been reloaded after a given time
+*
+* @param unique id for this widget
+* @param the path/url to the image
+* @param the mode: 'none', 'corner', 'corner-bottom' (optional, default 'none')
+* @param the reload-time in duration-format (optional, default '10i')
+*
+* @see misc/fundamentals#Duration-Format
+*/
+{% macro image(id, src, mode, time) %}
+
+	<img id="{{ uid(page, id) }}" data-widget="multimedia.image"
+		{% if mode == 'corner' %}
+			class="ui-corner-all"
+		{% elseif mode == 'corner-bottom' %}
+			class="ui-corner-bottom"
+		{% elseif mode == 'fill' %}
+			style="width: 100%"
+		{% endif %}
+		src="pages/base/pics/trans.png" />
+
+	<script type="text/javascript">
+		var noCacheSrc ='{{ src }}' +  (('{{ src }}'.indexOf('?') == -1) ? '?' : '&') + '_=' + new Date().getTime();
+		$('#{{ uid(page, id) }}').attr('src', noCacheSrc);
+
+		setInterval(function () {
+			var noCacheSrc ='{{ src }}' +  (('{{ src }}'.indexOf('?') == -1) ? '?' : '&') + '_=' + new Date().getTime();
+			$('#{{ uid(page, id) }}').attr('src', noCacheSrc);
+		}, new Date().duration('{{time|default("10i")}}'));
+	</script>
+
+{% endmacro %}
+
+
+/**
+* Standard Multimedia Player
+*
+* @param unique id for this widget
+* @param the item for play/pause
+* @param the item for stopping the music (optional)
+* @param the item for fast forward and rewind (optional)
+* @param the item for next an previous playlist title
+* @param the item for the position (optional)
+* @param the item for the volume (optional)
+* @param the item to mute the music (optional)
+* @param the item for the song title (optional)
+* @param the item for the song artist (optional)
+* @param the item for repeat (optional)
+* @param the item to load the default playlist (optional)
+*
+* @author Axel Otterstätter
+*/
+{% macro music(id, item_play, item_stop, item_ff, item_next, item_pos, item_vol, item_mute, item_title, item_artist, item_repeat, item_playlist) %}
+	{% import "basic.html" as basic %}
+	{% set uid = uid(page, id) %}
+
+	<div id="{{ uid }}" class="music">
+
+		{% if item_vol %}
+			<div class="vol">
+				<img class="slider-bottomup-scale" src="pages/base/pics/scale_buttomup.png">
+				{{ basic.slider(id~'vol', item_vol, 0, 100, 5, 'bottomup') }}
+			</div>
+		{% endif %}
+
+		<div class="control">
+			{% if item_mute %} {{ basic.button(id~'mute', item_mute, 'Mute', 'audio_volume_mute.svg', 1) }} {% endif %}
+			{% if item_repeat %} {{ basic.dual(id~'repeat', item_repeat, 'audio_repeat.svg', 'audio_repeat.svg') }} {% endif %}
+			{% if item_playlist %} {{ basic.button(id~'playlist', item_playlist, 'Default Playlist', 'audio_playlist.svg', 1) }} {% endif %}
+		</div>
+
+		<div class="title">{% if item_artist %}{{ basic.value(id~'artist', item_artist) }} &nbsp; {% endif %}
+			{% if item_title %}{{ basic.value(id~'title', item_title) }}{% endif %}</div>
+
+		<div class="set">
+			{% if item_pos %}
+				<div class="pos">
+					<div class="scale">&nbsp;</div>
+					{{ basic.slider(id~'pos', item_pos, 0, 100, 1) }}
+				</div>
+			{% endif %}
+
+			<div data-role="controlgroup" data-type="horizontal">
+				{{ basic.button(id~'prev', item_next, 'back', 'control_arrow_left.svg', 0) }}
+				{% if item_ff %} {{ basic.button(id~'rew', item_ff, 'rev', 'audio_rew.svg', 0) }} {% endif %}
+				{{ basic.dual(id~'play', item_play, 'audio_pause.svg', 'audio_play.svg') }}
+				{% if item_stop %} {{ basic.button(id~'stop', item_stop, 'stop', 'audio_stop.svg', 1) }} {% endif %}
+				{% if item_ff %} {{ basic.button(id~'ff', item_ff, 'fwd', 'audio_ff.svg', 1) }} {% endif %}
+				{{ basic.button(id~'next', item_next, 'next', 'control_arrow_right.svg', 1) }}
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+
+/**
+* A widget to display a slideshow, controlled by items/items
+*
+* @param unique id for this widget
+* @param a directory where the pictures are located
+* @param delay between the slides in sec (optional, default: 2 sec)
+* @param item to switch to the next slide
+* @param item to switch to the previous slide
+* @param item to stop the animation
+* @param item to start the animation
+*
+* @author Alex
+*
+* @info based on cycle2 jquery-plugin: (c) 2012 M. Alsup; Dual licensed: MIT/GPL
+* @link http://jquery.malsup.com/cycle2
+*/
+{% macro slideshow(id, dir, delay, item_next, item_prev, item_stop, item_start) %}
+	{% set uid = uid(page, id) %}
+
+	<script src="vendor/jquery.cycle2/jquery.cycle2.core.js"></script>
+	<script src="vendor/jquery.cycle2/jquery.cycle2.autoheight.js"></script>
+
+	<div id="{{ uid }}" class="slideshow" data-cycle-log="false" data-cycle-speed="{{ delay|default(2) * 1000 }}">
+		{% for file in dir(dir, '(.+?).(jpg|png|svg)') %}
+			<img src="{{ file.path }}" style="display: block;" title="{{ file.label }}" />
+		{% endfor %}
+	</div>
+
+	<script type="text/javascript">
+		$('#{{ page }}').on('pageinit', function (event, ui) {
+			$('#{{ uid }}').cycle();
+		});
+		$('#{{ page }}').on('pagebeforeshow', function (event, ui) {
+			$(window).triggerHandler('resize');
+		});
+	</script>
+{% endmacro %}
+
+
+/**
+* Displays a tv- or radio- station button
+*
+* @param unique id for this widget
+* @param a item
+* @param a icon (e. g. located in pics/station)
+* @param value send if the button is pressed (optional, default 1)
+* @param type: 'mini', 'midi' (optional, default: mini)
+*/
+{% macro station(id, item, pic, val, type) %}
+	{% import "basic.html" as basic %}
+	{% set uid = uid(page, id) %}
+
+	<div id="{{ uid }}" class="station">
+		{{ basic.button(id, item, '', pic, val, type|default('mini')) }}
+	</div>
+{% endmacro %}
