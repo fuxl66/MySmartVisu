@@ -135,6 +135,7 @@
 										{{ basic.symbol('1LWZ.compressorOn', 'LWZ.compressorOn', '', 'sani_pump.svg', 1, '', 'icon1') }}
 										{{ basic.symbol('1LWZ.heatingCircuitPumpOn', 'LWZ.heatingCircuitPumpOn', '', 'audio_repeat.svg', 1, '', 'icon1') }}
 										{{ basic.symbol('1LWZ.dhwPumpOn', 'LWZ.dhwPumpOn', '', 'sani_water_tap.svg', 1, '', 'icon1') }}
+										{{ basic.symbol('1LWZ.iconCooling', 'LWZ.iconCooling', '', 'weather_frost.svg', 1, '', 'icon1') }}
 										{{ basic.text('1LWZ.boosterStage1On', 'LWZ.boosterStage1On', 'HS1', '', 1, 0) }}
 										{{ basic.text('1LWZ.boosterStage2On', 'LWZ.boosterStage2On', 'HS2', '', 1, 0) }}
 										{{ basic.text('1LWZ.boosterStage3On', 'LWZ.boosterStage3On', 'HS3', '', 1, 0) }}
@@ -160,8 +161,8 @@
 						</tr>
 						<tr>
 							<td align=left><h1>Kühlen</h1></td>
-							<td align=center>tbd</td>
-							<td align=center>tbd</td>
+							<td align=center>{{ basic.formula('LWZ.iconCooling.Last', 'LWZ.iconCooling.Last', 'short') }}</td>
+							<td align=center>{{ basic.formula('LWZ.iconCooling.Prev', 'LWZ.iconCooling.Prev', 'short') }}</td>
 						</tr>
 						<tr>
 							<td align=left><h1>HS</h1></td>
@@ -289,7 +290,7 @@
 					</td>
 				</tr>
 			</table>
-			<div id="popupStatus" data-role="popup" style="width:200px; height:190px;">
+			<div id="popupStatus" data-role="popup" style="width:220px; height:260px;">
 					<table widht=100% align=center>
 						<tr>
 							<td align=left><h1>Carina</h1></td>
@@ -303,6 +304,17 @@
 							<td align=left><h1>Oma Heidi</h1></td>
 							<td align=center>{{ basic.formula('AVM.devices.router_7360.OmaHeidi.zuletzt111', 'AVM.devices.router_7360.OmaHeidi.zuletzt', 'short') }}</td>
 						</tr>
+
+						<tr>
+							<td align=left><h1>Oma Rosi</h1></td>
+							<td align=center>{{ basic.formula('AVM.devices.router_7360.OmaRosi.zuletzt111', 'AVM.devices.router_7360.OmaRosi.zuletzt', 'short') }}</td>
+						</tr>
+
+						<tr>
+							<td align=left><h1>Opa Pepi</h1></td>
+							<td align=center>{{ basic.formula('AVM.devices.router_7360.OpaPepi.zuletzt111', 'AVM.devices.router_7360.OpaPepi.zuletzt', 'short') }}</td>
+						</tr>
+
 						<tr>
 							<td align=left><h1>Eingang</h1></td>
 							<td align=center>{{ basic.formula('EG.Kontakt.Eingang.Uhr1111', 'EG.Kontakt.Eingang.Uhr', 'short') }}</td>
@@ -1392,6 +1404,8 @@
 							{{ basic.symbol('CarinaSmart', ['AVM.devices.repeater_eg.CarinaSmart', 'AVM.devices.repeater_og.CarinaSmart'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
 							{{ basic.symbol('FuxlSmart', ['AVM.devices.repeater_eg.FuxlSmart', 'AVM.devices.repeater_og.FuxlSmart'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
 							{{ basic.symbol('OmaHeidi', ['AVM.devices.repeater_eg.OmaHeidi', 'AVM.devices.repeater_og.OmaHeidi'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('OmaRosi', ['AVM.devices.repeater_eg.OmaRosi', 'AVM.devices.repeater_og.OmaRosi'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
+							{{ basic.symbol('OpaPepi', ['AVM.devices.repeater_eg.OpaPepi', 'AVM.devices.repeater_og.OpaPepi'], '', 'it_wifi.svg', 1, 'or', 'icon1') }}
 						</div>
 					</td>
 				</tr>

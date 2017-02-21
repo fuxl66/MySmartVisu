@@ -67,6 +67,34 @@
 					</td>
 				</tr>
 				<tr>
+					<td  width="25%" align=right valign=middle><h3>Oma Rosi<br />Smartphone</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('OmaRosiEGOGOR', ['AVM.devices.repeater_eg.OmaRosi', 'AVM.devices.repeater_og.OmaRosi'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('OmaRosiEGOGAND', ['AVM.devices.repeater_eg.OmaRosi', 'AVM.devices.repeater_og.OmaRosi'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.OmaRosi', 'AVM.devices.repeater_og.OmaRosi', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.OmaRosi', 'AVM.devices.repeater_eg.OmaRosi', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.OmaRosi.zuletzt', 'AVM.devices.router_7360.OmaRosi.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
+					<td  width="25%" align=right valign=middle><h3>Opa Pepi<br />Smartphone</h3></td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.symbol('OpaPepiEGOGOR', ['AVM.devices.repeater_eg.OpaPepi', 'AVM.devices.repeater_og.OpaPepi'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
+						{{ basic.symbol('OpaPepiEGOGAND', ['AVM.devices.repeater_eg.OpaPepi', 'AVM.devices.repeater_og.OpaPepi'], '', icon0~'control_x.svg', 0, 'and') }}
+					</td>
+					<td width="20%" align=middle valign=middle>
+						{{ basic.text('2AVM.devices.repeater_og.OpaPepi', 'AVM.devices.repeater_og.OpaPepi', 'OG', '', 1, 0) }}
+						{{ basic.text('2AVM.devices.repeater_eg.OpaPepi', 'AVM.devices.repeater_eg.OpaPepi', 'EG', '', 1, 0) }}
+					</td>
+					<td width="35%" align=middle valign=middle>
+					{{ basic.formula('AVM.devices.router_7360.OpaPepi.zuletzt', 'AVM.devices.router_7360.OpaPepi.zuletzt', 'short') }}
+					</td>
+				</tr>
+				<tr>
 					<td  width="25%" align=right valign=middle><h3>Surface<br />Book</h3></td>
 					<td width="20%" align=middle valign=middle>
 						{{ basic.symbol('SurfacebookEGOGOR', ['AVM.devices.repeater_eg.Surfacebook', 'AVM.devices.repeater_og.Surfacebook'], '', icon0~'it_wifi.svg', 1, 'or', 'icon1') }}
@@ -103,7 +131,8 @@
 						{{ basic.text('2AVM.devices.router_7360.Dreambox', 'AVM.devices.router_7360.Dreambox', 'LAN', '', 1, 0) }}
 					</td>
 					<td width="35%" align=middle valign=middle>
-					{{ basic.formula('AVM.devices.router_7360.Dreambox.zuletzt', 'AVM.devices.router_7360.Dreambox.zuletzt', 'short') }}
+						{{ basic.formula('AVM.devices.router_7360.Dreambox.zuletzt', 'AVM.devices.router_7360.Dreambox.zuletzt', 'short') }}<br />
+						{{ basic.formula('enigma2.dm7020hd.e2instandby.zuletzt', 'enigma2.dm7020hd.e2instandby.zuletzt', 'short') }}
 					</td>
 				</tr>
 				<tr>
@@ -116,7 +145,7 @@
 						{{ basic.text('2AVM.devices.router_7360.Drucker', 'AVM.devices.router_7360.Drucker', 'LAN', '', 1, 0) }}
 					</td>
 					<td width="35%" align=middle valign=middle>
-					{{ basic.formula('AVM.devices.router_7360.Drucker.zuletzt', 'AVM.devices.router_7360.Drucker.zuletzt', 'short') }}
+						{{ basic.formula('AVM.devices.router_7360.Drucker.zuletzt', 'AVM.devices.router_7360.Drucker.zuletzt', 'short') }}
 					</td>
 				</tr>
 				<tr>
@@ -129,7 +158,7 @@
 						{{ basic.text('2AVM.devices.router_7360.SmartTV', 'AVM.devices.router_7360.SmartTV', 'LAN', '', 1, 0) }}
 					</td>
 					<td width="35%" align=middle valign=middle>
-					{{ basic.formula('AVM.devices.router_7360.SmartTV.zuletzt', 'AVM.devices.router_7360.SmartTV.zuletzt', 'short') }}
+						{{ basic.formula('AVM.devices.router_7360.SmartTV.zuletzt', 'AVM.devices.router_7360.SmartTV.zuletzt', 'short') }}
 					</td>
 				</tr>
 			</table>
